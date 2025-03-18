@@ -1,0 +1,72 @@
+name: Frontend CI/CD
+
+on:
+  push:
+    branches: [ main, master ]
+    paths:
+      - 'frontend/**'
+      - '.github/workflows/frontend-deploy.yml'
+  pull_request:
+    branches: [ main, master ]
+    paths:
+      - 'frontend/**'
+      - '.github/workflows/frontend-deploy.yml'
+
+jobs:
+  deploy:
+    if: github.event_name == 'push' && (github.ref == 'refs/heads/main' || github.ref == 'refs/heads/master')
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      
+      - name: Configure AWS credentials
+        uses: aws-actions/configure-aws-credentials@v1
+        with:
+          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          aws-region: ${{ secrets.AWS_REGION }}
+      
+      - name: Get API Gateway URL from backend stack
+        run: |
+          API_URL=$(aws cloudformation describe-stacks --stack-name cloud-resume-challenge-backend --query "Stacks[0].Outputs[?OutputKey=='VisitorCounterApi'].OutputValue" --output text)
+          echo "API Gateway URL: $API_URL"
+          echo "API_URL=$API_URL" >> $GITHUB_ENV
+      
+      - name: Update API URL in JavaScript file
+        run: |
+          # 替換 JavaScript 文件中的 API URL
+          sed -i "s|https://YOUR_API_GATEWAY_ID.execute-api.YOUR_REGION.amazonaws.com/Prod/count|$API_URL|g" frontend/js/visitor-counter.js
+      
+      - name: Deploy to S3
+        run: |
+          # 如果 S3 存儲桶不存在，則創建它
+          aws s3api head-bucket --bucket ${{ secrets.S3_BUCKET_NAME }} 2>/dev/null || aws s3 mb s3://${{ secrets.S3_BUCKET_NAME }} --region ${{ secrets.AWS_REGION }}
+          
+          # 啟用 S3 存儲桶的靜態網站託管
+          aws s3 website s3://${{ secrets.S3_BUCKET_NAME }} --index-document index.html --error-document error.html
+          
+          # 上傳文件到 S3 存儲桶
+          aws s3 sync frontend/ s3://${{ secrets.S3_BUCKET_NAME }} --delete
+      
+      - name: Set S3 bucket policy for public access
+        run: |
+          cat > bucket-policy.json << EOF
+          {
+            "Version": "2012-10-17",
+            "Statement": [
+              {
+                "Sid": "PublicReadGetObject",
+                "Effect": "Allow",
+                "Principal": "*",
+                "Action": "s3:GetObject",
+                "Resource": "arn:aws:s3:::${{ secrets.S3_BUCKET_NAME }}/*"
+              }
+            ]
+          }
+          EOF
+          aws s3api put-bucket-policy --bucket ${{ secrets.S3_BUCKET_NAME }} --policy file://bucket-policy.json
+      
+      - name: Invalidate CloudFront cache
+        if: ${{ secrets.CLOUDFRONT_DISTRIBUTION_ID != '' }}
+        run: |
+          aws cloudfront create-invalidation --distribution-id ${{ secrets.CLOUDFRONT_DISTRIBUTION_ID }} --paths "/*" 
