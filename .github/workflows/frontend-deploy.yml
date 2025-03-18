@@ -41,7 +41,7 @@ jobs:
       - name: Update API URL in JavaScript file
         run: |
           # 替換 JavaScript 文件中的 API URL
-          sed -i "s|https://ckqxck3ts0.execute-api.us-east-1.amazonaws.com/Prod/visitor-count/Prod/count|$API_URL|g" frontend/js/visitor-counter.js
+          sed -i "s|https://ckqxck3ts0.execute-api.us-east-1.amazonaws.com/Prod/visitor-count|$API_URL|g" frontend/js/visitor-counter.js
       
       - name: Deploy to S3
         run: |
