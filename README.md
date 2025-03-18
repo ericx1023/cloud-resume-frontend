@@ -1,4 +1,4 @@
-# Cloud Resume Challenge - AWS
+# Cloud Resume - AWS
 
 This project is a complete implementation of the [Cloud Resume](https://cloudresumechallenge.dev/docs/the-challenge/aws/), which also demonstrate AWS cloud skills.
 
