@@ -4,7 +4,7 @@
  */
 
 // API 端點 URL (部署後更新)
-const API_URL = 'https://ckqxck3ts0.execute-api.us-east-1.amazonaws.com/Prod/visitor-count';
+const API_URL = 'https://ckqxck3ts0.execute-api.us-east-1.amazonaws.com/Prod/count';
 // 更新 API 端點為你的新 URL
 // 訪問者計數元素
 const visitorCountElement = document.getElementById('visitor-count');

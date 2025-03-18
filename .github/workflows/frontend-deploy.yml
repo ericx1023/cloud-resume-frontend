@@ -38,10 +38,16 @@ jobs:
           echo "API Gateway URL: $API_URL"
           echo "API_URL=$API_URL" >> $GITHUB_ENV
       
+      - name: Debug working directory
+        run: |
+          pwd
+          ls -la
+          find . -name "visitor-counter.js"
+      
       - name: Update API URL in JavaScript file
         run: |
           # 替換 JavaScript 文件中的 API URL
-          sed -i "s|https://ckqxck3ts0.execute-api.us-east-1.amazonaws.com/Prod/visitor-count|$API_URL|g" frontend/js/visitor-counter.js
+          sed -i "s|https://ckqxck3ts0.execute-api.us-east-1.amazonaws.com/Prod/count|$API_URL|g" frontend/js/visitor-counter.js
       
       - name: Deploy to S3
         run: |
