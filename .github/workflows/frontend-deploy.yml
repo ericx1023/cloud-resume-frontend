@@ -52,7 +52,7 @@ jobs:
       - name: Update API URL in App.tsx
         run: |
           # 替換 App.tsx 文件中的 API URL
-          sed -i "s|https://ckqxck3ts0.execute-api.us-east-1.amazonaws.com/Prod/count|$API_URL|g" frontend/src/App.tsx
+          sed -i "s|https://ckqxck3ts0.execute-api.us-east-1.amazonaws.com/Prod/count|$API_URL|g" src/App.tsx
       
       - name: Build React App
         run: npm run build
