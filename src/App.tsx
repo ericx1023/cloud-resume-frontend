@@ -19,7 +19,7 @@ function App() {
         const data = await response.json();
         setVisitorCount(data.count);
       } catch (error) {
-        console.error('Error fetching visitor count:', error);
+        console.error('Error fetching visitor count123:', error);
       }
     };
 

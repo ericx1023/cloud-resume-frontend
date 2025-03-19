@@ -11,6 +11,8 @@ on:
     paths:
       - 'frontend/**'
       - '.github/workflows/frontend-deploy.yml'
+  workflow_dispatch:
+    # 允許從 GitHub UI 手動觸發
 
 jobs:
   deploy:
