@@ -73,7 +73,8 @@ jobs:
         run: |
           cat > bucket-policy.json << EOF
           {
-            "Version": "2012-10-17",
+            "Version": "2008-10-17",
+            "Id": "PolicyForCloudFrontPrivateContent",
             "Statement": [
                 {
                     "Sid": "AllowCloudFrontServicePrincipal",
@@ -82,10 +83,10 @@ jobs:
                         "Service": "cloudfront.amazonaws.com"
                     },
                     "Action": "s3:GetObject",
-                    "Resource": "arn:aws:s3:::${{ secrets.S3_BUCKET_NAME }}/*",
+                    "Resource": "arn:aws:s3:::shenghao-wang-cloud-resume-2024/*",
                     "Condition": {
                         "StringEquals": {
-                            "AWS:SourceArn": "arn:aws:cloudfront::${{ secrets.AWS_ACCOUNT_ID }}:distribution/${{ secrets.CLOUDFRONT_DISTRIBUTION_ID }}"
+                          "AWS:SourceArn": "arn:aws:cloudfront::216830090435:distribution/E3DX3PA0DO9E6D"
                         }
                     }
                 }
