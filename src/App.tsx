@@ -110,13 +110,13 @@ function App() {
                   <h3 className="font-medium text-gray-800">Documentation</h3>
                   <ul className="mt-2 list-disc list-inside text-gray-600 space-y-1">
                     <li>
-                      <a href="https://psychevalley.org" className="text-blue-600 hover:underline">
+                      <a href="https://psychevalley.org" target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:underline">
                         Headless CMS Blog Project
                       </a>
                     </li>
                     <li>
-                      <a href="https://github.com/ericx1023" className="text-blue-600 hover:underline">
-                        GitHub repository
+                      <a href="https://github.com/ericx1023" target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:underline">
+                        GitHub repositories
                       </a>
                     </li>
                   </ul>
