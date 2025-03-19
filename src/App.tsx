@@ -120,13 +120,13 @@ function App() {
           }}
           className="relative"
         >
-          <div className="grid md:grid-cols-3 gap-8 w-full max-w-5xl mx-auto px-4 absolute top-1/2 -translate-y-1/2">
+          <div className="grid md:grid-cols-3 gap-8 w-full max-w-4xl mx-auto px-4 absolute top-1/2 -translate-y-1/2">
             <div className="md:col-span-2">
               <h2 className="text-2xl font-bold text-gray-800 mb-4">Professional Summary</h2>
               <p className="text-gray-600 leading-relaxed">
-                Software Engineering Manager with 10 years of experience driving technical excellence through strategic problem-solving,
-                critical thinking and communication. Dynamic Individual Contributor dedicated to continuous learning and personal
-                development, consistently leveraging a <span className="text-blue-600 font-semibold">Growth Mindset</span> to enhance technical and leadership capabilities.
+                Frontend Engineer with 10+ years of experience architecting scalable web applications and driving technical excellence. 
+                Expertise in <span className="bg-yellow-100 text-yellow-800 px-1 rounded">React</span>, <span className="bg-yellow-100 text-yellow-800 px-1 rounded">Angular</span>, and modern frontend frameworks, with a proven track record implementing frontend architectures and <span className="bg-yellow-100 text-yellow-800 px-1 rounded">Web Components</span>. 
+                Recognized for technical mentorship, establishing engineering best practices, and successfully migrating legacy systems to modern stacks while maintaining production reliability.
               </p>
             </div>
             <div>
@@ -135,18 +135,18 @@ function App() {
                 <div>
                   <h3 className="font-medium text-gray-800">Frontend</h3>
                   <p className="text-gray-600">
-                    <span className="text-blue-600 font-semibold">React</span>, 
-                    <span className="text-blue-600 font-semibold"> Angular</span>, 
+                    <span className="bg-yellow-100 text-yellow-800 px-1 rounded">React</span>,
+                    <span className="bg-yellow-100 text-yellow-800 px-1 rounded">Angular</span>,
                     TypeScript, Next.js, Rx.js, Redux, Tailwind CSS
                   </p>
                 </div>
                 <div>
                   <h3 className="font-medium text-gray-800">Backend</h3>
-                  <p className="text-gray-600">Node.js, Python, MySQL, Supabase</p>
+                  <p className="text-gray-600">Node.js, Python, PostgreSQL, Supabase, Firebase</p>
                 </div>
                 <div>
                   <h3 className="font-medium text-gray-800">Tools & Technologies</h3>
-                  <p className="text-gray-600">Git, Docker, Web Components, Micro Frontend</p>
+                  <p className="text-gray-600">Git, Docker, <span className="bg-yellow-100 text-yellow-800 px-1 rounded">Web Components</span>, <span className="bg-yellow-100 text-yellow-800 px-1 rounded">Micro Frontend</span></p>
                 </div>
                 <div>
                   <h3 className="font-medium text-gray-800">Legacy Skills</h3>
@@ -188,7 +188,7 @@ function App() {
                 <div>
                   <h3 className="text-xl font-semibold text-gray-800">Senior Software Development Engineer</h3>
                   <p className="text-blue-600 font-medium">Fortinet, Inc. Taiwan | Aug 2017 - Feb 2022</p>
-                  <p className="text-gray-500 italic mb-2">Tech stack: Stage.js, Backbone.js, Git, Redux, Tailwind CSS, Python, Node.js, MySQL</p>
+                  <p className="text-gray-500 italic mb-2">Tech stack: Stage.js, Backbone.js, Git, Redux, Tailwind CSS, Python, Node.js, PostgreSQL</p>
                   <ul className="mt-2 list-disc list-inside text-gray-600 space-y-1">
                     <li>Developed and maintained key features for Fortinet's Load Balancer DDoS Defender</li>
                     <li>Implemented responsive design principles using Tailwind CSS, significantly reducing custom CSS code</li>
@@ -292,23 +292,23 @@ function App() {
                   </ul>
                 </div>
                 <div>
-                  <h3 className="font-medium text-gray-800">AWS Services</h3>
-                  <ul className="mt-2 list-disc list-inside text-gray-600 space-y-1">
-                    <li>S3 for React website hosting</li>
-                    <li>CloudFront for HTTPS security</li>
-                    <li>Route 53 for custom DNS domain</li>
-                    <li>DynamoDB for visitor counter database</li>
+                  <h3 className="font-medium text-gray-800" >AWS Services</h3>
+                  <ul className="mt-2 list-disc list-inside text-gray-600 space-y-1 ">
+                    <li><span className="bg-yellow-100 text-yellow-800 px-1 rounded">S3</span> for React website hosting</li>
+                    <li><span className="bg-yellow-100 text-yellow-800 px-1 rounded">CloudFront</span> for HTTPS security</li>
+                    <li><span className="">Route 53</span> for custom DNS domain</li>
+                    <li><span className="">DynamoDB</span> for visitor counter database</li>
                     <li>API Gateway & Lambda for serverless API</li>
                   </ul>
                 </div>
                 <div>
                   <h3 className="font-medium text-gray-800">Backend & DevOps</h3>
                   <ul className="mt-2 list-disc list-inside text-gray-600 space-y-1">
-                    <li>Python with boto3 for Lambda functions</li>
+                    <li>Python with boto3 for <span className="bg-yellow-100 text-yellow-800 px-1 rounded">Lambda</span> functions</li>
                     <li>Unit testing for Python code</li>
                     <li>AWS SAM for Infrastructure as Code</li>
                     <li>GitHub for source control</li>
-                    <li>GitHub Actions for CI/CD pipeline</li>
+                    <li>GitHub Actions for  <span className="bg-yellow-100 text-yellow-800 px-1 rounded">CI/CD</span> pipeline</li>
                   </ul>
                 </div>
                 <div>
@@ -332,18 +332,6 @@ function App() {
         </motion.div>
       </main>
 
-      {/* Footer */}
-      <motion.footer
-        initial={{ opacity: 0, y: 50 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true }}
-        transition={{ duration: 0.8 }}
-        className="bg-gray-100 py-6"
-      >
-        <div className="container mx-auto px-4 max-w-5xl text-center text-gray-600">
-          <p>© {new Date().getFullYear()} Sheng-Hao Wang</p>
-        </div>
-      </motion.footer>
     </div>
   );
 }
