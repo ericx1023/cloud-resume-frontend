@@ -115,7 +115,7 @@ function App() {
                       </a>
                     </li>
                     <li>
-                      <a href="https://github.com/" className="text-blue-600 hover:underline">
+                      <a href="https://github.com/ericx1023" className="text-blue-600 hover:underline">
                         GitHub repository
                       </a>
                     </li>

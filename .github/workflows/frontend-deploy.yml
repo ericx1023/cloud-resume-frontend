@@ -25,7 +25,7 @@ jobs:
         with:
           node-version: 18
           cache: 'npm'
-          cache-dependency-path: frontend/package.json
+          cache-dependency-path: package.json
       
       - name: Debug AWS credentials
         run: |
@@ -53,10 +53,10 @@ jobs:
       - name: Update API URL in App.tsx
         run: |
           # 替換 App.tsx 文件中的 API URL
-          sed -i "s|YOUR_API_GATEWAY_URL|$API_URL|g" frontend/src/App.tsx
+          sed -i "s|https://ckqxck3ts0.execute-api.us-east-1.amazonaws.com/Prod/count|$API_URL|g" src/App.tsx
       
       - name: Build React App
-        working-directory: ./frontend
+        working-directory: .
         run: npm run build
       
       - name: Deploy to S3
