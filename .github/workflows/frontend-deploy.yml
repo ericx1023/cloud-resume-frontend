@@ -4,19 +4,22 @@ on:
   push:
     branches: [ main, master ]
     paths:
-      - 'frontend/**'
-      - '.github/workflows/frontend-deploy.yml'
+      - '**'
   pull_request:
     branches: [ main, master ]
     paths:
-      - 'frontend/**'
-      - '.github/workflows/frontend-deploy.yml'
+      - '**'
   workflow_dispatch:
-    # 允許從 GitHub UI 手動觸發
+
+defaults:
+  run:
+    working-directory: frontend
 
 jobs:
   deploy:
-    if: github.event_name == 'push' && (github.ref == 'refs/heads/main' || github.ref == 'refs/heads/master')
+    if: |
+      (github.event_name == 'push' && (github.ref == 'refs/heads/main' || github.ref == 'refs/heads/master')) ||
+      github.event_name == 'workflow_dispatch'
     runs-on: ubuntu-latest
     environment: aws
     steps:
@@ -27,7 +30,7 @@ jobs:
         with:
           node-version: 18
           cache: 'npm'
-          cache-dependency-path: package.json
+          cache-dependency-path: frontend/package.json
       
       - name: Debug AWS credentials
         run: |
