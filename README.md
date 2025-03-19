@@ -1,6 +1,6 @@
 # Cloud Resume - AWS
 
-This project is a complete implementation of the [Cloud Resume](https://cloudresumechallenge.dev/docs/the-challenge/aws/), which also demonstrate AWS cloud skills.
+This project is a complete implementation of the [Cloud Resume](https://cloudresumechallenge.dev/docs/the-challenge/aws/), which also demonstrates AWS cloud skills.
 
 ## Project Architecture
 
@@ -32,55 +32,55 @@ Experience and learning notes from this project can be found on [my blog](https:
 
 # Cloud Resume Challenge - React Frontend
 
-這是我的 Cloud Resume Challenge 前端專案，使用 React 和 Tailwind CSS 構建。
+This is my Cloud Resume Challenge frontend project, built with React and Tailwind CSS.
 
-## 功能
+## Features
 
-- 響應式設計的個人履歷網站
-- 與 AWS API Gateway 和 Lambda 後端整合
-- 訪問者計數功能
-- 使用 GitHub Actions 自動部署到 AWS S3 和 CloudFront
+- Responsive design personal resume website
+- Integration with AWS API Gateway and Lambda backend
+- Visitor counter functionality
+- Automatic deployment to AWS S3 and CloudFront using GitHub Actions
 
-## 本地開發
+## Local Development
 
-### 前提條件
+### Prerequisites
 
-- Node.js 18+ 已安裝
-- npm 已安裝
+- Node.js 18+ installed
+- npm installed
 
-### 安裝依賴
+### Installing Dependencies
 
 ```bash
 cd frontend
 npm install
 ```
 
-### 本地運行
+### Running Locally
 
 ```bash
 npm start
 ```
 
-應用將在 http://localhost:3000 啟動。
+The application will start at http://localhost:3000.
 
-### 構建生產版本
+### Building for Production
 
 ```bash
 npm run build
 ```
 
-構建文件將生成在 `build` 目錄中。
+The build files will be generated in the `build` directory.
 
-## 部署
+## Deployment
 
-本項目使用 GitHub Actions 進行自動部署。當代碼推送到 `main` 或 `master` 分支時，CI/CD 流水線將：
+This project uses GitHub Actions for automatic deployment. When code is pushed to the `main` or `master` branch, the CI/CD pipeline will:
 
-1. 構建 React 應用
-2. 將構建文件部署到 AWS S3 存儲桶
-3. 更新 S3 存儲桶策略以允許 CloudFront 訪問
-4. 使 CloudFront 分發失效以更新緩存
+1. Build the React application
+2. Deploy the build files to an AWS S3 bucket
+3. Update the S3 bucket policy to allow CloudFront access
+4. Invalidate the CloudFront distribution to update the cache
 
-### 所需的 GitHub Secrets
+### Required GitHub Secrets
 
 - `AWS_ACCESS_KEY_ID`
 - `AWS_SECRET_ACCESS_KEY`
@@ -89,9 +89,9 @@ npm run build
 - `CLOUDFRONT_DISTRIBUTION_ID`
 - `AWS_ACCOUNT_ID`
 
-## 技術堆棧
+## Technology Stack
 
 - React
 - TypeScript
 - Tailwind CSS
-- Lucide React (圖標) 
+- Lucide React (icons) 

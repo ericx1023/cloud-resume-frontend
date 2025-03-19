@@ -115,13 +115,13 @@ const Projects: React.FC<Props> = ({ section4Opacity, section4Y, cloudResumeRef,
               <h3 className="font-medium text-gray-800">Documentation</h3>
               <ul className="mt-2 list-disc list-inside text-gray-600 space-y-1">
                 <li>
-                  <a href="https://psychevalley.org" target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:underline">
-                    Headless CMS Blog Project
+                  <a href="https://github.com/ericx1023/cloud-resume-frontend" target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:underline">
+                    GitHub repository
                   </a>
                 </li>
                 <li>
-                  <a href="https://github.com/ericx1023" target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:underline">
-                    GitHub repositories
+                  <a href="https://psychevalley.org" target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:underline">
+                    Headless CMS Blog Project
                   </a>
                 </li>
               </ul>
