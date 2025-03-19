@@ -61,20 +61,20 @@ const Projects: React.FC<Props> = ({ section4Opacity, section4Y, cloudResumeRef,
         </div>
         <div>
           <motion.h2 
-            className="text-2xl font-bold text-gray-800 mb-4"
+            className="text-2xl font-bold mb-4"
             animate={{
-              backgroundColor: isBlinking 
+              color: isBlinking 
                 ? [
-                    'rgba(255, 255, 0, 0)',
-                    'rgba(255, 255, 0, 0.3)',
-                    'rgba(255, 255, 0, 0)',
-                    'rgba(255, 255, 0, 0.3)',
-                    'rgba(255, 255, 0, 0)'
+                    'rgb(31, 41, 55)', // text-gray-800
+                    'rgb(59, 130, 246)', // text-blue-500
+                    'rgb(31, 41, 55)', // text-gray-800
+                    'rgb(59, 130, 246)', // text-blue-500
+                    'rgb(31, 41, 55)' // text-gray-800
                   ]
-                : 'rgba(255, 255, 0, 0)'
+                : 'rgb(31, 41, 55)' // text-gray-800
             }}
             transition={{
-              duration: 2, // 增加動畫持續時間
+              duration: 2,
               times: [0, 0.25, 0.5, 0.75, 1],
               ease: "easeInOut"
             }}
@@ -83,15 +83,6 @@ const Projects: React.FC<Props> = ({ section4Opacity, section4Y, cloudResumeRef,
           </motion.h2>
           <div className="space-y-4">
             <div>
-              <h3 className="font-medium text-gray-800">Frontend</h3>
-              <ul className="mt-2 list-disc list-inside text-gray-600 space-y-1">
-                <li>HTML & CSS for structure and styling</li>
-                <li>React.js with TypeScript</li>
-                <li>JavaScript for visitor counter functionality</li>
-                <li>Tailwind CSS for responsive design</li>
-              </ul>
-            </div>
-            <div>
               <h3 className="font-medium text-gray-800">AWS Services</h3>
               <ul className="mt-2 list-disc list-inside text-gray-600 space-y-1">
                 <li><span className="bg-yellow-100 text-yellow-800 px-1 rounded">S3</span> for React website hosting</li>
@@ -99,6 +90,15 @@ const Projects: React.FC<Props> = ({ section4Opacity, section4Y, cloudResumeRef,
                 <li><span className="">Route 53</span> for custom DNS domain</li>
                 <li><span className="">DynamoDB</span> for visitor counter database</li>
                 <li>API Gateway & Lambda for serverless API</li>
+              </ul>
+            </div>
+            <div>
+              <h3 className="font-medium text-gray-800">Frontend</h3>
+              <ul className="mt-2 list-disc list-inside text-gray-600 space-y-1">
+                <li>HTML & CSS for structure and styling</li>
+                <li>React.js with TypeScript</li>
+                <li>JavaScript for visitor counter functionality</li>
+                <li>Tailwind CSS for responsive design</li>
               </ul>
             </div>
             <div>
