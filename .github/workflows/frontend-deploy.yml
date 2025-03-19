@@ -64,8 +64,7 @@ jobs:
           # 如果 S3 存儲桶不存在，則創建它
           aws s3api head-bucket --bucket ${{ secrets.S3_BUCKET_NAME }} 2>/dev/null || aws s3 mb s3://${{ secrets.S3_BUCKET_NAME }} --region ${{ secrets.AWS_REGION }}
           
-          # 啟用 S3 存儲桶的靜態網站託管
-          aws s3 website s3://${{ secrets.S3_BUCKET_NAME }} --index-document index.html --error-document error.html
+          # 移除 S3 存儲桶的靜態網站託管設定 - 不需要，因為我們使用 CloudFront OAC
           
           # 上傳文件到 S3 存儲桶
           aws s3 sync build s3://${{ secrets.S3_BUCKET_NAME }} --delete
@@ -74,8 +73,7 @@ jobs:
         run: |
           cat > bucket-policy.json << EOF
           {
-            "Version": "2008-10-17",
-            "Id": "PolicyForCloudFrontPrivateContent",
+            "Version": "2012-10-17",
             "Statement": [
                 {
                     "Sid": "AllowCloudFrontServicePrincipal",
@@ -95,6 +93,12 @@ jobs:
           }
           EOF
           aws s3api put-bucket-policy --bucket ${{ secrets.S3_BUCKET_NAME }} --policy file://bucket-policy.json
+      
+      # 確保 bucket 不用作為網站託管（由 CloudFront 處理）
+      - name: Configure S3 bucket for CloudFront access
+        run: |
+          # 關閉公開存取
+          aws s3api put-public-access-block --bucket ${{ secrets.S3_BUCKET_NAME }} --public-access-block-configuration "BlockPublicAcls=true,IgnorePublicAcls=true,BlockPublicPolicy=false,RestrictPublicBuckets=true"
       
       - name: Invalidate CloudFront cache
         run: |
