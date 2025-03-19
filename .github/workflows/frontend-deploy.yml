@@ -19,6 +19,14 @@ jobs:
     environment: aws
     steps:
       - uses: actions/checkout@v3
+      
+      - name: Set up Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: 18
+          cache: 'npm'
+          cache-dependency-path: frontend/package.json
+      
       - name: Debug AWS credentials
         run: |
           echo "AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID != '' && '***' || 'NOT SET' }}"
@@ -38,16 +46,18 @@ jobs:
           echo "API Gateway URL: $API_URL"
           echo "API_URL=$API_URL" >> $GITHUB_ENV
       
-      - name: Debug working directory
-        run: |
-          pwd
-          ls -la
-          find . -name "visitor-counter.js"
+      - name: Install Dependencies
+        working-directory: ./frontend
+        run: npm install
       
-      - name: Update API URL in JavaScript file
+      - name: Update API URL in App.tsx
         run: |
-          # 替換 JavaScript 文件中的 API URL
-          sed -i "s|https://ckqxck3ts0.execute-api.us-east-1.amazonaws.com/Prod/count|$API_URL|g" js/visitor-counter.js
+          # 替換 App.tsx 文件中的 API URL
+          sed -i "s|YOUR_API_GATEWAY_URL|$API_URL|g" frontend/src/App.tsx
+      
+      - name: Build React App
+        working-directory: ./frontend
+        run: npm run build
       
       - name: Deploy to S3
         run: |
@@ -58,7 +68,7 @@ jobs:
           aws s3 website s3://${{ secrets.S3_BUCKET_NAME }} --index-document index.html --error-document error.html
           
           # 上傳文件到 S3 存儲桶
-          aws s3 sync . s3://${{ secrets.S3_BUCKET_NAME }} --delete
+          aws s3 sync frontend/build s3://${{ secrets.S3_BUCKET_NAME }} --delete
       
       - name: Set S3 bucket policy for public access
         run: |
@@ -74,10 +84,10 @@ jobs:
                         "Service": "cloudfront.amazonaws.com"
                     },
                     "Action": "s3:GetObject",
-                    "Resource": "arn:aws:s3:::shenghao-wang-cloud-resume-2024/*",
+                    "Resource": "arn:aws:s3:::${{ secrets.S3_BUCKET_NAME }}/*",
                     "Condition": {
                         "StringEquals": {
-                            "AWS:SourceArn": "arn:aws:cloudfront::216830090435:distribution/E3DX3PA0DO9E6D"
+                            "AWS:SourceArn": "arn:aws:cloudfront::${{ secrets.AWS_ACCOUNT_ID }}:distribution/${{ secrets.CLOUDFRONT_DISTRIBUTION_ID }}"
                         }
                     }
                 }
