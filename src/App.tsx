@@ -9,6 +9,8 @@ function App() {
   const [visitorCount, setVisitorCount] = useState<number | null>(null);
   const apiCalledRef = useRef(false);
   const { scrollYProgress } = useScroll();
+  const cloudResumeRef = useRef<HTMLDivElement>(null);
+  const [isBlinking, setIsBlinking] = useState(false);
 
   // 調整滾動效果的時機
   const section1Opacity = useTransform(scrollYProgress, [0, 0.15], [1, 0]);
@@ -44,6 +46,16 @@ function App() {
 
     fetchCount();
   }, []);
+
+  const handleVisitorClick = () => {
+    cloudResumeRef.current?.scrollIntoView({ behavior: 'smooth' });
+    // 等待滾動完成後再開始閃爍
+    setTimeout(() => {
+      setIsBlinking(true);
+      // 4秒後停止閃爍
+      setTimeout(() => setIsBlinking(false), 4000);
+    }, 1000); // 等待1秒讓滾動完成
+  };
 
   return (
     <div className="min-h-screen bg-gray-50">
@@ -94,12 +106,37 @@ function App() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.8 }}
-              className="bg-blue-50 p-4 rounded-lg mt-8"
+              className="bg-blue-50 p-4 rounded-lg mt-8 cursor-pointer hover:bg-blue-100 transition-colors"
+              onClick={handleVisitorClick}
             >
               <p className="text-center text-gray-600">
-                Visitor Count: <span className="font-bold">
-                  {visitorCount === null ? 'Loading...' : visitorCount}
-                </span>
+                {visitorCount === null ? (
+                  'Loading...'
+                ) : (
+                  <>
+                    You are the <span className="font-bold">
+                      {visitorCount}
+                      <sup className="ml-0.5">
+                        {(() => {
+                          if (!visitorCount) return '';
+                          const lastDigit = visitorCount % 10;
+                          const lastTwoDigits = visitorCount % 100;
+                          
+                          // 特殊情況：11, 12, 13 都用 'th'
+                          if (lastTwoDigits >= 11 && lastTwoDigits <= 13) return 'th';
+                          
+                          // 其他情況
+                          switch (lastDigit) {
+                            case 1: return 'st';
+                            case 2: return 'nd';
+                            case 3: return 'rd';
+                            default: return 'th';
+                          }
+                        })()}
+                      </sup>
+                    </span> visitor
+                  </>
+                )}
               </p>
             </motion.section>
 
@@ -232,6 +269,7 @@ function App() {
 
         {/* Section 4: Projects & Cloud Resume Stack */}
         <motion.div
+          ref={cloudResumeRef}
           style={{
             opacity: section4Opacity,
             y: section4Y,
@@ -280,7 +318,27 @@ function App() {
               </div>
             </div>
             <div>
-              <h2 className="text-2xl font-bold text-gray-800 mb-4">Cloud Resume Stack</h2>
+              <motion.h2 
+                className="text-2xl font-bold text-gray-800 mb-4"
+                animate={{
+                  backgroundColor: isBlinking 
+                    ? [
+                        'rgba(255, 255, 0, 0)',
+                        'rgba(255, 255, 0, 0.3)',
+                        'rgba(255, 255, 0, 0)',
+                        'rgba(255, 255, 0, 0.3)',
+                        'rgba(255, 255, 0, 0)'
+                      ]
+                    : 'rgba(255, 255, 0, 0)'
+                }}
+                transition={{
+                  duration: 2, // 增加動畫持續時間
+                  times: [0, 0.25, 0.5, 0.75, 1],
+                  ease: "easeInOut"
+                }}
+              >
+                Cloud Resume Stack
+              </motion.h2>
               <div className="space-y-4">
                 <div>
                   <h3 className="font-medium text-gray-800">Frontend</h3>
