@@ -1,17 +1,22 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useRef } from 'react';
 import { Github, Linkedin, Mail, MapPin, Phone } from 'lucide-react';
 
 // Replace with your API Gateway URL
-const API_URL = 'YOUR_API_GATEWAY_URL';
+const API_URL = 'https://5udg206bdk.execute-api.us-east-1.amazonaws.com/Prod';
 
 function App() {
   const [visitorCount, setVisitorCount] = useState<number | null>(null);
+  const apiCalledRef = useRef(false);
 
   useEffect(() => {
     const fetchCount = async () => {
+      // 避免多次呼叫 API
+      if (apiCalledRef.current) return;
+      apiCalledRef.current = true;
+      
       try {
         const response = await fetch(`${API_URL}/count`, {
-          method: 'POST',
+          method: 'GET',
           headers: {
             'Content-Type': 'application/json',
           },
@@ -19,7 +24,7 @@ function App() {
         const data = await response.json();
         setVisitorCount(data.count);
       } catch (error) {
-        console.error('Error fetching visitor count123:', error);
+        console.error('Error fetching visitor count:', error);
       }
     };
 
@@ -89,7 +94,7 @@ function App() {
                 <div>
                   <h3 className="font-medium text-gray-800">AWS Services</h3>
                   <ul className="mt-2 list-disc list-inside text-gray-600 space-y-1">
-                    <li>S3 for static website hosting</li>
+                    <li>S3 for React website hosting</li>
                     <li>CloudFront for HTTPS security</li>
                     <li>Route 53 for custom DNS domain</li>
                     <li>DynamoDB for visitor counter database</li>
@@ -239,9 +244,6 @@ function App() {
       <footer className="bg-gray-100 py-6">
         <div className="container mx-auto px-4 max-w-5xl text-center text-gray-600">
           <p>© {new Date().getFullYear()} Sheng-Hao Wang</p>
-          <p className="mt-2">
-            <a href="/projects" className="text-blue-600 hover:underline">View more of my projects</a>
-          </p>
         </div>
       </footer>
     </div>
