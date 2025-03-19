@@ -110,8 +110,8 @@ function App() {
                   <h3 className="font-medium text-gray-800">Documentation</h3>
                   <ul className="mt-2 list-disc list-inside text-gray-600 space-y-1">
                     <li>
-                      <a href="#" className="text-blue-600 hover:underline">
-                        Blog post about my learning journey
+                      <a href="https://psychevalley.org" className="text-blue-600 hover:underline">
+                        Headless CMS Blog Project
                       </a>
                     </li>
                     <li>
