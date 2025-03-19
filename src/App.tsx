@@ -13,21 +13,21 @@ function App() {
   // 調整滾動效果的時機
   const section1Opacity = useTransform(scrollYProgress, [0, 0.15], [1, 0]);
   const section1Y = useTransform(scrollYProgress, [0, 0.15], [0, -50]);
-  
-  const section2Opacity = useTransform(scrollYProgress, [0.15, 0.35], [0, 1]);
+
+  const section2Opacity = useTransform(scrollYProgress, [0.15, 0.35, 0.35, 0.5], [0, 1, 1, 0]);
   const section2Y = useTransform(scrollYProgress, [0.15, 0.35], [50, 0]);
-  
-  const section3Opacity = useTransform(scrollYProgress, [0.35, 0.75], [0, 1]);
-  const section3Y = useTransform(scrollYProgress, [0.35, 0.75], [50, 0]);
-  
-  const section4Opacity = useTransform(scrollYProgress, [0.75, 0.95], [0, 1]);
-  const section4Y = useTransform(scrollYProgress, [0.75, 0.95], [50, 0]);
+
+  const section3Opacity = useTransform(scrollYProgress, [0.5, 0.75, 0.75, 0.85], [0, 1, 1, 0]);
+  const section3Y = useTransform(scrollYProgress, [0.5, 0.75], [50, 0]);
+
+  const section4Opacity = useTransform(scrollYProgress, [0.85, 0.95], [0, 1]);
+  const section4Y = useTransform(scrollYProgress, [0.85, 0.95], [50, 0]);
 
   useEffect(() => {
     const fetchCount = async () => {
       if (apiCalledRef.current) return;
       apiCalledRef.current = true;
-      
+
       try {
         const response = await fetch(`${API_URL}/count`, {
           method: 'GET',
@@ -50,9 +50,18 @@ function App() {
       {/* Main Content */}
       <main className="relative">
         {/* Section 1: Header/Hero Section */}
-        <motion.div 
-          style={{ opacity: section1Opacity, y: section1Y }}
-          className="min-h-screen flex items-center justify-center inset-0 w-screen left-1/2 -translate-x-1/2 bg-gradient-to-b from-gray-900 via-gray-800 to-transparent text-white"
+        <motion.div
+          style={{
+            opacity: section1Opacity,
+            y: section1Y,
+            position: 'sticky',
+            top: 0,
+            height: '100vh',
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'center'
+          }}
+          className="w-screen left-1/2 -translate-x-1/2 bg-gradient-to-b from-gray-900 via-gray-800 to-transparent text-white"
         >
           <div className="flex flex-col items-center text-center max-w-5xl mx-auto px-4">
             <h1 className="text-4xl md:text-5xl font-bold mb-4">Sheng-Hao (Sheng) Wang</h1>
@@ -79,36 +88,45 @@ function App() {
                 <a href="https://linkedin.com/in/" target="_blank" rel="noopener noreferrer" className="hover:text-gray-200">LinkedIn</a>
               </div>
             </div>
-                          {/* Visitor Counter */}
-                          <motion.section
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.8 }}
-                className="bg-blue-50 p-4 rounded-lg mt-8"
-              >
-                <p className="text-center text-gray-600">
-                  Visitor Count: <span className="font-bold">
-                    {visitorCount === null ? 'Loading...' : visitorCount}
-                  </span>
-                </p>
-              </motion.section>
+            {/* Visitor Counter */}
+            <motion.section
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.8 }}
+              className="bg-blue-50 p-4 rounded-lg mt-8"
+            >
+              <p className="text-center text-gray-600">
+                Visitor Count: <span className="font-bold">
+                  {visitorCount === null ? 'Loading...' : visitorCount}
+                </span>
+              </p>
+            </motion.section>
 
           </div>
         </motion.div>
 
         {/* Section 2: Professional Summary & Technical Skills */}
-        <motion.div 
-          style={{ opacity: section2Opacity, y: section2Y }}
-          className="min-h-screen flex items-center justify-center relative"
+        <motion.div
+          style={{
+            opacity: section2Opacity,
+            y: section2Y,
+            position: 'sticky',
+            top: 0,
+            height: '100vh',
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'center'
+          }}
+          className="relative"
         >
           <div className="grid md:grid-cols-3 gap-8 w-full max-w-5xl mx-auto px-4 absolute top-1/2 -translate-y-1/2">
             <div className="md:col-span-2">
               <h2 className="text-2xl font-bold text-gray-800 mb-4">Professional Summary</h2>
               <p className="text-gray-600 leading-relaxed">
-                Software Engineering Manager with 10 years of experience driving technical excellence through strategic problem-solving, 
-                critical thinking and communication. Dynamic Individual Contributor dedicated to continuous learning and personal 
-                development, consistently leveraging a Growth Mindset to enhance technical and leadership capabilities.
+                Software Engineering Manager with 10 years of experience driving technical excellence through strategic problem-solving,
+                critical thinking and communication. Dynamic Individual Contributor dedicated to continuous learning and personal
+                development, consistently leveraging a <span className="text-blue-600 font-semibold">Growth Mindset</span> to enhance technical and leadership capabilities.
               </p>
             </div>
             <div>
@@ -116,7 +134,11 @@ function App() {
               <div className="space-y-2">
                 <div>
                   <h3 className="font-medium text-gray-800">Frontend</h3>
-                  <p className="text-gray-600">React, Angular, TypeScript, Next.js, Rx.js, Redux, Tailwind CSS</p>
+                  <p className="text-gray-600">
+                    <span className="text-blue-600 font-semibold">React</span>, 
+                    <span className="text-blue-600 font-semibold"> Angular</span>, 
+                    TypeScript, Next.js, Rx.js, Redux, Tailwind CSS
+                  </p>
                 </div>
                 <div>
                   <h3 className="font-medium text-gray-800">Backend</h3>
@@ -136,9 +158,18 @@ function App() {
         </motion.div>
 
         {/* Section 3: Work Experience & Education */}
-        <motion.div 
-          style={{ opacity: section3Opacity, y: section3Y }}
-          className="min-h-screen flex items-center justify-center relative"
+        <motion.div
+          style={{
+            opacity: section3Opacity,
+            y: section3Y,
+            position: 'sticky',
+            top: 0,
+            height: '100vh',
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'center'
+          }}
+          className="relative"
         >
           <div className="grid md:grid-cols-3 gap-8 w-full max-w-5xl mx-auto px-4 absolute top-1/2 -translate-y-1/2">
             <div className="md:col-span-2">
@@ -200,21 +231,52 @@ function App() {
         </motion.div>
 
         {/* Section 4: Projects & Cloud Resume Stack */}
-        <motion.div 
-          style={{ opacity: section4Opacity, y: section4Y }}
-          className="min-h-screen flex items-center justify-center relative"
+        <motion.div
+          style={{
+            opacity: section4Opacity,
+            y: section4Y,
+            position: 'sticky',
+            top: 0,
+            height: '100vh',
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'center'
+          }}
+          className="relative"
         >
           <div className="grid md:grid-cols-3 gap-8 w-full max-w-5xl mx-auto px-4 absolute top-1/2 -translate-y-1/2">
             <div className="md:col-span-2">
               <h2 className="text-2xl font-bold text-gray-800 mb-4">Projects</h2>
-              <div>
-                <h3 className="text-xl font-semibold text-gray-800">Flux image AI model Trainer, AI Newsletter Automation, Blog website</h3>
-                <p className="text-blue-600 font-medium">Full Stack Developer</p>
-                <p className="text-gray-500 italic mb-2">Tech stack: Next.js, Supabase, Comfy UI, Flux 1.0 dev, MCP, Python, Crew ai, Micro Frontend, Contentful CMS</p>
-                <ul className="mt-2 list-disc list-inside text-gray-600 space-y-1">
-                  <li>Built full-stack AI model training platform using Next.js, Supabase, and Replicate, enabling streamlined image model training through Flux 1.0</li>
-                  <li>Engineered complete user authentication and data workflows using Clerk, handling image processing and model training operations</li>
-                </ul>
+              <div className="space-y-6">
+                <div>
+                  <h3 className="text-xl font-semibold text-gray-800">Flux Image AI Model Trainer</h3>
+                  <p className="text-blue-600 font-medium">Full Stack Developer</p>
+                  <p className="text-gray-500 italic mb-2">Tech stack: Next.js, Supabase, Comfy UI, Flux 1.0 dev</p>
+                  <ul className="mt-2 list-disc list-inside text-gray-600 space-y-1">
+                    <li>Built full-stack AI model training platform using Next.js, Supabase, and Replicate, enabling streamlined image model training through Flux 1.0</li>
+                    <li>Engineered complete user authentication and data workflows using Clerk, handling image processing and model training operations</li>
+                  </ul>
+                </div>
+
+                <div>
+                  <h3 className="text-xl font-semibold text-gray-800">AI Newsletter Automation</h3>
+                  <p className="text-blue-600 font-medium">Full Stack Developer</p>
+                  <p className="text-gray-500 italic mb-2">Tech stack: Python, Crew AI</p>
+                  <ul className="mt-2 list-disc list-inside text-gray-600 space-y-1">
+                    <li>Developed automated newsletter generation system using Python and Crew AI</li>
+                    <li>Implemented intelligent content curation and summarization capabilities</li>
+                  </ul>
+                </div>
+
+                <div>
+                  <h3 className="text-xl font-semibold text-gray-800">Blog Website</h3>
+                  <p className="text-blue-600 font-medium">Full Stack Developer</p>
+                  <p className="text-gray-500 italic mb-2">Tech stack: Next.js, Contentful CMS</p>
+                  <ul className="mt-2 list-disc list-inside text-gray-600 space-y-1">
+                    <li>Created a modern blog platform using Next.js and Contentful CMS</li>
+                    <li>Implemented micro frontend architecture for better scalability and maintenance</li>
+                  </ul>
+                </div>
               </div>
             </div>
             <div>
