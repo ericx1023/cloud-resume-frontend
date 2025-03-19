@@ -47,16 +47,14 @@ jobs:
           echo "API_URL=$API_URL" >> $GITHUB_ENV
       
       - name: Install Dependencies
-        working-directory: ./frontend
         run: npm install
       
       - name: Update API URL in App.tsx
         run: |
           # 替換 App.tsx 文件中的 API URL
-          sed -i "s|https://ckqxck3ts0.execute-api.us-east-1.amazonaws.com/Prod/count|$API_URL|g" src/App.tsx
+          sed -i "s|https://ckqxck3ts0.execute-api.us-east-1.amazonaws.com/Prod/count|$API_URL|g" frontend/src/App.tsx
       
       - name: Build React App
-        working-directory: .
         run: npm run build
       
       - name: Deploy to S3
@@ -68,7 +66,7 @@ jobs:
           aws s3 website s3://${{ secrets.S3_BUCKET_NAME }} --index-document index.html --error-document error.html
           
           # 上傳文件到 S3 存儲桶
-          aws s3 sync frontend/build s3://${{ secrets.S3_BUCKET_NAME }} --delete
+          aws s3 sync build s3://${{ secrets.S3_BUCKET_NAME }} --delete
       
       - name: Set S3 bucket policy for public access
         run: |
