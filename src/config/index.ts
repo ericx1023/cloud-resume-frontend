@@ -16,6 +16,9 @@ export const getPersonalInfo = (): PersonalInfoType => {
   return personalInfo;
 };
 
-export default {
+// 先將對象分配給變數，然後再導出
+const config = {
   personalInfo
-}; 
+};
+
+export default config; 

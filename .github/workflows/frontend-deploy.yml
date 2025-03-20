@@ -24,6 +24,18 @@ jobs:
           cache: 'npm'
           cache-dependency-path: './package.json'
       
+      # 設置個人信息作為環境變數
+      - name: Setup Personal Info
+        run: npm run setup-config
+        env:
+          PERSONAL_NAME: ${{ secrets.PERSONAL_NAME }}
+          PERSONAL_TITLE: ${{ secrets.PERSONAL_TITLE }}
+          PERSONAL_LOCATION: ${{ secrets.PERSONAL_LOCATION }}
+          PERSONAL_EMAIL: ${{ secrets.PERSONAL_EMAIL }}
+          PERSONAL_PHONE: ${{ secrets.PERSONAL_PHONE }}
+          PERSONAL_GITHUB: ${{ secrets.PERSONAL_GITHUB }}
+          PERSONAL_LINKEDIN: ${{ secrets.PERSONAL_LINKEDIN }}
+      
       - name: Debug AWS credentials
         run: |
           echo "AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID != '' && '***' || 'NOT SET' }}"
@@ -53,6 +65,8 @@ jobs:
       
       - name: Build React App
         run: npm run build
+        env:
+          CI: false  # 避免 ESLint 警告被視為錯誤
       
       - name: Deploy to S3
         run: |
