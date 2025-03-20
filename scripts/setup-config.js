@@ -7,6 +7,10 @@
  * 使用方法：
  * 1. 在 CI/CD 流程中設置所需的環境變數
  * 2. 執行此腳本
+ * 
+ * 在本地開發環境中：
+ * - 如果配置文件已存在，則保留原有配置
+ * - 只有在文件不存在時才使用默認值創建
  */
 
 const fs = require('fs');
@@ -14,17 +18,54 @@ const path = require('path');
 
 // 定義配置文件路徑
 const configPath = path.join(__dirname, '../src/config/personalInfo.json');
+const exampleConfigPath = path.join(__dirname, '../src/config/personalInfo.example.json');
+
+// 檢查是否是 CI 環境
+const isCI = process.env.CI === 'true' || Boolean(process.env.GITHUB_ACTIONS);
+
+// 檢查配置文件是否已存在
+const configExists = fs.existsSync(configPath);
+
+// 如果在本地開發環境且配置文件已存在，則不做任何操作
+if (!isCI && configExists) {
+  console.log('personalInfo.json file already exists. Keeping existing configuration for local development.');
+  process.exit(0);
+}
+
+// 嘗試從示例文件讀取默認值（如果存在）
+let defaultValues = {
+  name: 'Default Name',
+  title: 'Default Title',
+  location: 'Default Location',
+  email: 'default@example.com',
+  phone: '+1-XXX-XXX-XXXX',
+  socialLinks: {
+    github: 'https://github.com/',
+    linkedin: 'https://linkedin.com/in/'
+  }
+};
+
+// 如果示例配置文件存在，使用它作為默認值
+if (fs.existsSync(exampleConfigPath)) {
+  try {
+    const exampleConfig = JSON.parse(fs.readFileSync(exampleConfigPath, 'utf8'));
+    defaultValues = exampleConfig;
+    console.log('Using values from personalInfo.example.json as defaults');
+  } catch (error) {
+    console.warn('Error reading example config:', error.message);
+  }
+}
 
 // 從環境變數中獲取個人信息
 const personalInfo = {
-  name: process.env.PERSONAL_NAME || 'Default Name',
-  title: process.env.PERSONAL_TITLE || 'Default Title',
-  location: process.env.PERSONAL_LOCATION || 'Default Location',
-  email: process.env.PERSONAL_EMAIL || 'default@example.com',
-  phone: process.env.PERSONAL_PHONE || '+1-XXX-XXX-XXXX',
+  name: process.env.PERSONAL_NAME || defaultValues.name,
+  title: process.env.PERSONAL_TITLE || defaultValues.title,
+  location: process.env.PERSONAL_LOCATION || defaultValues.location,
+  email: process.env.PERSONAL_EMAIL || defaultValues.email,
+  phone: process.env.PERSONAL_PHONE || defaultValues.phone,
   socialLinks: {
-    github: process.env.PERSONAL_GITHUB || 'https://github.com/',
-    linkedin: process.env.PERSONAL_LINKEDIN || 'https://linkedin.com/in/'
+    github: process.env.PERSONAL_GITHUB || defaultValues.socialLinks.github,
+    linkedin: process.env.PERSONAL_LINKEDIN || defaultValues.socialLinks.linkedin
   }
 };
 
