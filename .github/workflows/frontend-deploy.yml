@@ -80,6 +80,13 @@ jobs:
         run: npm run build
         env:
           CI: false  # 避免 ESLint 警告被視為錯誤
+          PERSONAL_NAME: ${{ secrets.PERSONAL_NAME }}
+          PERSONAL_TITLE: ${{ secrets.PERSONAL_TITLE }}
+          PERSONAL_LOCATION: ${{ secrets.PERSONAL_LOCATION }}
+          PERSONAL_EMAIL: ${{ secrets.PERSONAL_EMAIL }}
+          PERSONAL_PHONE: ${{ secrets.PERSONAL_PHONE }}
+          PERSONAL_GITHUB: ${{ secrets.PERSONAL_GITHUB }}
+          PERSONAL_LINKEDIN: ${{ secrets.PERSONAL_LINKEDIN }}
       
       - name: Deploy to S3
         run: |
