@@ -1,0 +1,10 @@
+/* CloudResumeStack 組件專用樣式 */
+
+.cloudResumeContainer * {
+  font-family: 'Montserrat', sans-serif;
+}
+
+.cloudResumeContainer h2,
+.cloudResumeContainer h3 {
+  font-family: 'Playfair Display', serif;
+} 
