@@ -4,9 +4,9 @@ module.exports = {
   theme: {
     extend: {
       fontFamily: {
+        'heading': ['Playfair Display', 'serif'],
+        'body': ['Source Sans Pro', 'sans-serif'],
         'montserrat': ['Montserrat', 'sans-serif'],
-        'merriweather': ['Merriweather', 'serif'],
-        'roboto-slab': ['"Roboto Slab"', 'serif'],
       },
     },
   },

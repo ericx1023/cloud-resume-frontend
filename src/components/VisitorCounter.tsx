@@ -13,11 +13,11 @@ const VisitorCounter: React.FC<Props> = ({ visitorCount, onVisitorClick }) => {
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
       transition={{ duration: 0.8 }}
-      className="bg-blue-50 p-4 rounded-lg mt-8 hover:bg-blue-100 transition-colors cursor-pointer"
+      className="bg-blue-50 p-4 rounded-lg mt-8 hover:bg-blue-100 transition-colors cursor-pointer font-montserrat"
       onClick={onVisitorClick}
       style={{ cursor: "pointer" }}
     >
-      <p className="text-center text-gray-600 font-merriweather">
+      <p className="text-center text-gray-600">
         {visitorCount === null ? (
           'Loading...'
         ) : (

@@ -26,7 +26,7 @@ const CloudResumeStack: React.FC<Props> = ({ section5Opacity, section5Y, cloudRe
     >
       <div className="max-w-3xl mx-auto px-4 w-full">
         <motion.h2 
-          className="text-3xl font-bold mb-6 text-center font-montserrat"
+          className="text-3xl font-bold mb-6 text-center"
           animate={{
             color: isBlinking 
               ? [
@@ -48,8 +48,8 @@ const CloudResumeStack: React.FC<Props> = ({ section5Opacity, section5Y, cloudRe
         </motion.h2>
         <div className="bg-white shadow-xl rounded-lg p-6 space-y-6">
           <div>
-            <h3 className="text-xl font-medium text-gray-800 border-b pb-2 font-montserrat">AWS Services</h3>
-            <ul className="mt-4 grid grid-cols-1 md:grid-cols-2 gap-3 font-merriweather">
+            <h3 className="text-xl font-medium text-gray-800 border-b pb-2">AWS Services</h3>
+            <ul className="mt-4 grid grid-cols-1 md:grid-cols-2 gap-3">
               <li className="flex items-center space-x-2">
                 <span className="bg-yellow-100 text-yellow-800 px-2 py-1 rounded font-medium">S3</span>
                 <span className="text-gray-600">for React website hosting</span>
@@ -79,8 +79,8 @@ const CloudResumeStack: React.FC<Props> = ({ section5Opacity, section5Y, cloudRe
           
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             <div>
-              <h3 className="text-xl font-medium text-gray-800 border-b pb-2 font-montserrat">Frontend</h3>
-              <ul className="mt-4 space-y-2 text-gray-600 font-merriweather">
+              <h3 className="text-xl font-medium text-gray-800 border-b pb-2">Frontend</h3>
+              <ul className="mt-4 space-y-2 text-gray-600">
                 <li className="flex items-center space-x-2">
                   <span className="bg-blue-100 text-blue-800 px-2 py-1 rounded font-medium">React.js</span>
                   <span>with TypeScript</span>
@@ -101,8 +101,8 @@ const CloudResumeStack: React.FC<Props> = ({ section5Opacity, section5Y, cloudRe
             </div>
             
             <div>
-              <h3 className="text-xl font-medium text-gray-800 border-b pb-2 font-montserrat">Backend & DevOps</h3>
-              <ul className="mt-4 space-y-2 text-gray-600 font-merriweather">
+              <h3 className="text-xl font-medium text-gray-800 border-b pb-2">Backend & DevOps</h3>
+              <ul className="mt-4 space-y-2 text-gray-600">
                 <li className="flex items-center space-x-2">
                   <span className="bg-green-100 text-green-800 px-2 py-1 rounded font-medium">Python</span>
                   <span>with boto3 for Lambda</span>
@@ -124,8 +124,8 @@ const CloudResumeStack: React.FC<Props> = ({ section5Opacity, section5Y, cloudRe
           </div>
           
           <div>
-            <h3 className="text-xl font-medium text-gray-800 border-b pb-2 font-montserrat">Documentation</h3>
-            <div className="mt-4 flex flex-wrap gap-4 font-merriweather">
+            <h3 className="text-xl font-medium text-gray-800 border-b pb-2">Documentation</h3>
+            <div className="mt-4 flex flex-wrap gap-4">
               <a 
                 href="https://github.com/ericx1023/cloud-resume-frontend" 
                 target="_blank" 

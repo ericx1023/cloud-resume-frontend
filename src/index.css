@@ -2,16 +2,4 @@
 @tailwind components;
 @tailwind utilities;
 
-@layer base {
-  html {
-    font-family: 'Merriweather', serif;
-  }
-  
-  h1, h2, h3, h4, h5, h6 {
-    font-family: 'Montserrat', sans-serif;
-  }
-
-  .italic, i, em {
-    font-family: 'Roboto Slab', serif;
-  }
-} 
+@import './fonts.css'; 
