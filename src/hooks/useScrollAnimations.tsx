@@ -15,9 +15,13 @@ export const useScrollAnimations = () => {
   const section3Opacity = useTransform(scrollYProgress, [0.5, 0.75, 0.75, 0.85], [0, 1, 1, 0]);
   const section3Y = useTransform(scrollYProgress, [0.5, 0.75], [50, 0]);
 
-  // Section 4: Projects & Cloud Resume Stack
-  const section4Opacity = useTransform(scrollYProgress, [0.85, 0.95], [0, 1]);
-  const section4Y = useTransform(scrollYProgress, [0.85, 0.95], [50, 0]);
+  // Section 4: Projects
+  const section4Opacity = useTransform(scrollYProgress, [0.85, 0.9, 0.9, 0.95], [0, 1, 1, 0]);
+  const section4Y = useTransform(scrollYProgress, [0.85, 0.9], [50, 0]);
+
+  // Section 5: Cloud Resume Stack
+  const section5Opacity = useTransform(scrollYProgress, [0.95, 1.0], [0, 1]);
+  const section5Y = useTransform(scrollYProgress, [0.95, 1.0], [50, 0]);
 
   return {
     scrollYProgress,
@@ -28,6 +32,8 @@ export const useScrollAnimations = () => {
     section3Opacity,
     section3Y,
     section4Opacity,
-    section4Y
+    section4Y,
+    section5Opacity,
+    section5Y
   };
 }; 

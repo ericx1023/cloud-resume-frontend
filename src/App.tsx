@@ -4,6 +4,7 @@ import Header from './components/Header';
 import ProfessionalSummary from './components/ProfessionalSummary';
 import WorkExperience from './components/WorkExperience';
 import Projects from './components/Projects';
+import CloudResumeStack from './components/CloudResumeStack';
 
 // Replace with your API Gateway URL
 const API_URL = 'https://5udg206bdk.execute-api.us-east-1.amazonaws.com/Prod';
@@ -23,7 +24,9 @@ function App() {
     section3Opacity,
     section3Y,
     section4Opacity,
-    section4Y
+    section4Y,
+    section5Opacity,
+    section5Y
   } = useScrollAnimations();
 
   useEffect(() => {
@@ -79,6 +82,11 @@ function App() {
         <Projects 
           section4Opacity={section4Opacity} 
           section4Y={section4Y} 
+        />
+        
+        <CloudResumeStack 
+          section5Opacity={section5Opacity} 
+          section5Y={section5Y} 
           cloudResumeRef={cloudResumeRef} 
           isBlinking={isBlinking} 
         />
