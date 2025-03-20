@@ -6,7 +6,9 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "setup-config": "node scripts/setup-config.js",
+    "prebuild": "npm run setup-config"
   },
   "dependencies": {
     "framer-motion": "^12.5.0",

@@ -1,0 +1,11 @@
+{
+  "name": "Your Name",
+  "title": "Your Title",
+  "location": "City, State",
+  "email": "your.email@example.com",
+  "phone": "+1-XXX-XXX-XXXX",
+  "socialLinks": {
+    "github": "https://github.com/your-username",
+    "linkedin": "https://linkedin.com/in/your-username"
+  }
+} 

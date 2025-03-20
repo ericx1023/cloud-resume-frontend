@@ -94,4 +94,36 @@ This project uses GitHub Actions for automatic deployment. When code is pushed t
 - React
 - TypeScript
 - Tailwind CSS
-- Lucide React (icons) 
+- Lucide React (icons)
+
+# Frontend
+
+## 設置個人信息
+
+為了保護您的個人信息，本專案使用配置文件來存儲個人信息，並且該配置文件不會被提交到 Git 倉庫。
+
+### 設置步驟
+
+1. 在 `src/config` 目錄中找到 `personalInfo.example.json` 文件。
+2. 複製該文件並將其重命名為 `personalInfo.json`。
+3. 在 `personalInfo.json` 文件中填入您的個人信息。
+
+```json
+{
+  "name": "Your Name",
+  "title": "Your Title",
+  "location": "City, State",
+  "email": "your.email@example.com",
+  "phone": "+1-XXX-XXX-XXXX",
+  "socialLinks": {
+    "github": "https://github.com/your-username",
+    "linkedin": "https://linkedin.com/in/your-username"
+  }
+}
+```
+
+### 注意事項
+
+- `personalInfo.json` 文件已添加到 `.gitignore` 文件中，不會被提交到 Git 倉庫。
+- 在部署前，請確保您已經正確設置了 `personalInfo.json` 文件。
+- 在 CI/CD 流程中，您可能需要手動添加此文件或通過安全機制（如 GitHub Secrets）注入這些信息。 
