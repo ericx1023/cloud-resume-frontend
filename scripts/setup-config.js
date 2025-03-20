@@ -32,6 +32,18 @@ if (!isCI && configExists) {
   process.exit(0);
 }
 
+// 添加調試信息以便於排查問題
+console.log('Environment: ' + (isCI ? 'CI/CD' : 'Local Development'));
+console.log('Environment variables:', {
+  PERSONAL_NAME: process.env.PERSONAL_NAME ? '***' : 'NOT SET',
+  PERSONAL_TITLE: process.env.PERSONAL_TITLE ? '***' : 'NOT SET',
+  PERSONAL_LOCATION: process.env.PERSONAL_LOCATION ? '***' : 'NOT SET',
+  PERSONAL_EMAIL: process.env.PERSONAL_EMAIL ? '***' : 'NOT SET',
+  PERSONAL_PHONE: process.env.PERSONAL_PHONE ? '***' : 'NOT SET',
+  PERSONAL_GITHUB: process.env.PERSONAL_GITHUB ? '***' : 'NOT SET',
+  PERSONAL_LINKEDIN: process.env.PERSONAL_LINKEDIN ? '***' : 'NOT SET',
+});
+
 // 嘗試從示例文件讀取默認值（如果存在）
 let defaultValues = {
   name: 'Default Name',
@@ -68,6 +80,25 @@ const personalInfo = {
     linkedin: process.env.PERSONAL_LINKEDIN || defaultValues.socialLinks.linkedin
   }
 };
+
+// 檢查是否在CI環境中但缺少關鍵環境變數
+if (isCI) {
+  const missingVars = [];
+  if (!process.env.PERSONAL_NAME) missingVars.push('PERSONAL_NAME');
+  if (!process.env.PERSONAL_TITLE) missingVars.push('PERSONAL_TITLE');
+  if (!process.env.PERSONAL_LOCATION) missingVars.push('PERSONAL_LOCATION');
+  if (!process.env.PERSONAL_EMAIL) missingVars.push('PERSONAL_EMAIL');
+  if (!process.env.PERSONAL_PHONE) missingVars.push('PERSONAL_PHONE');
+  if (!process.env.PERSONAL_GITHUB) missingVars.push('PERSONAL_GITHUB');
+  if (!process.env.PERSONAL_LINKEDIN) missingVars.push('PERSONAL_LINKEDIN');
+  
+  if (missingVars.length > 0) {
+    console.warn(`WARNING: Running in CI environment but missing these environment variables: ${missingVars.join(', ')}`);
+    console.warn('Will use default values from example config which may expose placeholder text in your deployed app!');
+  } else {
+    console.log('All personal info environment variables are set correctly.');
+  }
+}
 
 // 創建配置目錄（如果不存在）
 const configDir = path.dirname(configPath);

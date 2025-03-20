@@ -26,7 +26,19 @@ jobs:
       
       # 設置個人信息作為環境變數
       - name: Setup Personal Info
-        run: npm run setup-config
+        run: |
+          # 設置 CI=true 來確保腳本知道它在 CI 環境中運行
+          export CI=true
+          # 輸出環境變數狀態（僅顯示是否設置，不顯示實際值）
+          echo "PERSONAL_NAME: ${PERSONAL_NAME:+SET}"
+          echo "PERSONAL_TITLE: ${PERSONAL_TITLE:+SET}"
+          echo "PERSONAL_LOCATION: ${PERSONAL_LOCATION:+SET}"
+          echo "PERSONAL_EMAIL: ${PERSONAL_EMAIL:+SET}"
+          echo "PERSONAL_PHONE: ${PERSONAL_PHONE:+SET}"
+          echo "PERSONAL_GITHUB: ${PERSONAL_GITHUB:+SET}"
+          echo "PERSONAL_LINKEDIN: ${PERSONAL_LINKEDIN:+SET}"
+          # 運行設置配置腳本
+          npm run setup-config
         env:
           PERSONAL_NAME: ${{ secrets.PERSONAL_NAME }}
           PERSONAL_TITLE: ${{ secrets.PERSONAL_TITLE }}
@@ -41,6 +53,14 @@ jobs:
           echo "AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID != '' && '***' || 'NOT SET' }}"
           echo "AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY != '' && '***' || 'NOT SET' }}"
           echo "AWS_REGION: ${{ secrets.AWS_REGION != '' && '***' || 'NOT SET' }}"
+          echo "API_URL: ${{ secrets.API_URL != '' && '***' || 'NOT SET' }}"
+          echo "PERSONAL_NAME: ${{ PERSONAL_NAME != '' && '***' || 'NOT SET' }}"
+          echo "PERSONAL_TITLE: ${{ PERSONAL_TITLE != '' && '***' || 'NOT SET' }}"
+          echo "PERSONAL_LOCATION: ${{ PERSONAL_LOCATION != '' && '***' || 'NOT SET' }}"
+          echo "PERSONAL_EMAIL: ${{ PERSONAL_EMAIL != '' && '***' || 'NOT SET' }}"
+          echo "PERSONAL_PHONE: ${{ PERSONAL_PHONE != '' && '***' || 'NOT SET' }}"
+          echo "PERSONAL_GITHUB: ${{ PERSONAL_GITHUB != '' && '***' || 'NOT SET' }}"
+          echo "PERSONAL_LINKEDIN: ${{ PERSONAL_LINKEDIN != '' && '***' || 'NOT SET' }}"
 
       - name: Configure AWS credentials
         uses: aws-actions/configure-aws-credentials@v1
