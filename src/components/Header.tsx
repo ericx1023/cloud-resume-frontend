@@ -26,9 +26,9 @@ const Header: React.FC<Props> = ({ section1Opacity, section1Y, visitorCount, onV
       className="w-screen left-1/2 -translate-x-1/2 bg-gradient-to-b from-gray-900 via-gray-800 to-transparent text-white"
     >
       <div className="flex flex-col items-center text-center max-w-5xl mx-auto px-4">
-        <h1 className="text-4xl md:text-5xl font-bold mb-4">Sheng-Hao (Sheng) Wang</h1>
-        <h2 className="text-xl md:text-2xl text-gray-200 mb-6">Software Engineering Manager</h2>
-        <div className="flex flex-wrap justify-center gap-4 text-sm">
+        <h1 className="text-4xl md:text-5xl font-bold mb-4 font-montserrat">Sheng-Hao (Sheng) Wang</h1>
+        <h2 className="text-xl md:text-2xl text-gray-200 mb-6 font-montserrat">Software Engineering Manager</h2>
+        <div className="flex flex-wrap justify-center gap-4 text-sm font-merriweather">
           <div className="flex items-center gap-2">
             <MapPin size={16} />
             <span>Sunnyvale, CA</span>

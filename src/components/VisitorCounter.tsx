@@ -17,7 +17,7 @@ const VisitorCounter: React.FC<Props> = ({ visitorCount, onVisitorClick }) => {
       onClick={onVisitorClick}
       style={{ cursor: "pointer" }}
     >
-      <p className="text-center text-gray-600">
+      <p className="text-center text-gray-600 font-merriweather">
         {visitorCount === null ? (
           'Loading...'
         ) : (
