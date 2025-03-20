@@ -65,13 +65,13 @@ const Projects: React.FC<Props> = ({ section4Opacity, section4Y, cloudResumeRef,
             animate={{
               color: isBlinking 
                 ? [
-                    'rgb(31, 41, 55)', // text-gray-800
-                    'rgb(59, 130, 246)', // text-blue-500
-                    'rgb(31, 41, 55)', // text-gray-800
-                    'rgb(59, 130, 246)', // text-blue-500
-                    'rgb(31, 41, 55)' // text-gray-800
+                    'rgb(31, 41, 55)', // text-gray-800 (黑色)
+                    'rgb(234, 179, 8)', // text-yellow-500 (黃色)
+                    'rgb(31, 41, 55)', // text-gray-800 (黑色)
+                    'rgb(234, 179, 8)', // text-yellow-500 (黃色)
+                    'rgb(31, 41, 55)' // text-gray-800 (黑色)
                   ]
-                : 'rgb(31, 41, 55)' // text-gray-800
+                : 'rgb(31, 41, 55)' // text-gray-800 (黑色)
             }}
             transition={{
               duration: 2,

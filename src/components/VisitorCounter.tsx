@@ -13,8 +13,9 @@ const VisitorCounter: React.FC<Props> = ({ visitorCount, onVisitorClick }) => {
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
       transition={{ duration: 0.8 }}
-      className="bg-blue-50 p-4 rounded-lg mt-8 cursor-pointer hover:bg-blue-100 transition-colors"
+      className="bg-blue-50 p-4 rounded-lg mt-8 hover:bg-blue-100 transition-colors cursor-pointer"
       onClick={onVisitorClick}
+      style={{ cursor: "pointer" }}
     >
       <p className="text-center text-gray-600">
         {visitorCount === null ? (
@@ -41,7 +42,7 @@ const VisitorCounter: React.FC<Props> = ({ visitorCount, onVisitorClick }) => {
                   }
                 })()}
               </sup>
-            </span> visitor
+            </span> visitor of the resume
           </>
         )}
       </p>
