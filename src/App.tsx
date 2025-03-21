@@ -1,5 +1,5 @@
 import React, { useEffect, useState, useRef } from 'react';
-import { useHeaderScrollAnimations } from './hooks/useHeaderScrollAnimations';
+import { useScrollAnimations } from './hooks/useScrollAnimations';
 import Header from './components/Header';
 import ProfessionalSummary from './components/ProfessionalSummary';
 import WorkExperience from './components/WorkExperience';
@@ -16,8 +16,19 @@ function App() {
   const cloudResumeRef = useRef<HTMLDivElement>(null);
   const [isBlinking, setIsBlinking] = useState(false);
   
-  // Use custom hook for header scroll animations
-  const { section1Opacity, section1Y, section2Opacity, section2Y } = useHeaderScrollAnimations();
+  // Use custom hook for scroll animations
+  const { 
+    section1Opacity, 
+    section1Y, 
+    section2Opacity, 
+    section2Y,
+    section3Opacity,
+    section3Y,
+    section5Opacity,
+    section5Y,
+    section6Opacity,
+    section6Y
+  } = useScrollAnimations();
 
   useEffect(() => {
     const fetchCount = async () => {
@@ -68,11 +79,16 @@ function App() {
         
         <Education />
         
-        <Projects />
+        <Projects
+          section5Opacity={section5Opacity}
+          section5Y={section5Y}
+        />
         
         <CloudResumeStack 
           cloudResumeRef={cloudResumeRef} 
-          isBlinking={isBlinking} 
+          isBlinking={isBlinking}
+          section6Opacity={section6Opacity}
+          section6Y={section6Y}
         />
       </main>
     </div>

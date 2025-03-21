@@ -1,18 +1,32 @@
 import React from 'react';
 import styles from './CloudResumeStack.module.css';
+import { motion } from 'framer-motion';
 
 type Props = {
   cloudResumeRef: React.RefObject<HTMLDivElement>;
   isBlinking: boolean;
+  section6Opacity: any;
+  section6Y: any;
 };
 
-const CloudResumeStack: React.FC<Props> = ({ cloudResumeRef, isBlinking }) => {
+const CloudResumeStack: React.FC<Props> = ({ cloudResumeRef, isBlinking, section6Opacity, section6Y }) => {
   return (
-    <div
+    <motion.div
       ref={cloudResumeRef}
-      className="w-full py-16"
+      style={{
+        opacity: section6Opacity,
+        y: section6Y,
+        position: 'sticky',
+        top: 0,
+        height: '100vh',
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'center',
+        zIndex: 3
+      }}
+      className="relative"
     >
-      <div className={`max-w-3xl mx-auto px-4 w-full ${styles.cloudResumeContainer}`}>
+      <div className={`max-w-3xl mx-auto px-4 w-full absolute top-1/2 -translate-y-1/2 ${styles.cloudResumeContainer}`}>
         <h2 
           className="text-3xl font-bold mb-6 text-center"
         >
@@ -124,7 +138,7 @@ const CloudResumeStack: React.FC<Props> = ({ cloudResumeRef, isBlinking }) => {
           </div>
         </div>
       </div>
-    </div>
+    </motion.div>
   );
 };
 

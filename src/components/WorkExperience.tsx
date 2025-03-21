@@ -1,7 +1,9 @@
 import React from 'react';
 import { Timeline } from './ui/timeline';
 
-type Props = {};
+type Props = {
+  // 移除不需要的 props
+};
 
 const WorkExperience: React.FC<Props> = () => {
   const experiences = [

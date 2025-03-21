@@ -14,11 +14,11 @@ const ProfessionalSummary: React.FC<Props> = ({ section2Opacity, section2Y }) =>
         y: section2Y,
         position: 'sticky',
         top: 0,
-        height: '100vh',
+        height: '130vh',
         display: 'flex',
         alignItems: 'center',
         justifyContent: 'center',
-        zIndex: 5
+        zIndex: 2
       }}
       className="relative"
     >
