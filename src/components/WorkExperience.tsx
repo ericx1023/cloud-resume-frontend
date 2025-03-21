@@ -8,7 +8,7 @@ const WorkExperience: React.FC<Props> = () => {
     {
       title: "2022 - Present",
       content: (
-        <div className="bg-white shadow-lg rounded-lg p-6 mb-6">
+        <div className="bg-white shadow-lg rounded-lg p-6 mb-3">
           <h3 className="text-xl md:text-2xl font-semibold text-gray-800">Software Development Manager</h3>
           <p className="text-blue-600 font-medium">Fortinet, Inc.</p>
           <div className="mt-2 mb-4">
@@ -38,7 +38,7 @@ const WorkExperience: React.FC<Props> = () => {
     {
       title: "2017 - 2022",
       content: (
-        <div className="bg-white shadow-lg rounded-lg p-6 mb-6">
+        <div className="bg-white shadow-lg rounded-lg p-6 mb-3">
           <h3 className="text-xl md:text-2xl font-semibold text-gray-800">Senior Software Development Engineer</h3>
           <p className="text-blue-600 font-medium">Fortinet, Inc. Taiwan</p>
           <div className="mt-2 mb-4">
