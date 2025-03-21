@@ -8,7 +8,7 @@ const Education: React.FC<Props> = () => {
     {
       title: "2014",
       content: (
-        <div className="bg-white shadow-lg rounded-lg p-6">
+        <div className="bg-white shadow-lg rounded-lg p-6 mb-6">
           <h3 className="text-xl md:text-2xl font-semibold text-gray-800">PC School Taiwan</h3>
           <p className="text-blue-600 font-medium">Java Programming & Android Development</p>
           <div className="mt-2 mb-4">
@@ -34,7 +34,7 @@ const Education: React.FC<Props> = () => {
     },{
       title: "2005 - 2006",
       content: (
-        <div className="bg-white shadow-lg rounded-lg p-6 mb-3">
+        <div className="bg-white shadow-lg rounded-lg p-6 mb-6">
           <h3 className="text-xl md:text-2xl font-semibold text-gray-800">University of Kent, Canterbury, UK</h3>
           <p className="text-blue-600 font-medium">MSc. Group Processing and Intergroup Relations</p>
           <div className="mt-2 mb-4">
@@ -61,7 +61,7 @@ const Education: React.FC<Props> = () => {
     {
       title: "1998 - 2003",
       content: (
-        <div className="bg-white shadow-lg rounded-lg p-6 mb-3">
+        <div className="bg-white shadow-lg rounded-lg p-6 mb-6">
           <h3 className="text-xl md:text-2xl font-semibold text-gray-800">Chun-Yuan Christian University</h3>
           <p className="text-blue-600 font-medium">Bachelor of Psychology</p>
           <div className="mt-2 mb-4">
@@ -89,11 +89,13 @@ const Education: React.FC<Props> = () => {
   ];
 
   return (
-    <Timeline 
-      data={educations}
-      title="Education"
-      subtitle="My academic journey and qualifications"
-    />
+    <div className="pb-20 md:pb-0">
+      <Timeline 
+        data={educations}
+        title="Education"
+        subtitle="My academic journey and qualifications"
+      />
+    </div>
   );
 };
 
