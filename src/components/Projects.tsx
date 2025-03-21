@@ -17,7 +17,8 @@ const Projects: React.FC<Props> = ({ section5Opacity, section5Y }) => {
         height: '100vh',
         display: 'flex',
         alignItems: 'center',
-        justifyContent: 'center'
+        justifyContent: 'center',
+        zIndex: 4
       }}
       className="relative"
     >

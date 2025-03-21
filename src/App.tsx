@@ -17,15 +17,13 @@ function App() {
   const [isBlinking, setIsBlinking] = useState(false);
   
   // Use custom hook for scroll animations
-  const {
-    section1Opacity,
-    section1Y,
-    section2Opacity,
+  const { 
+    section1Opacity, 
+    section1Y, 
+    section2Opacity, 
     section2Y,
     section3Opacity,
     section3Y,
-    section4Opacity,
-    section4Y,
     section5Opacity,
     section5Y,
     section6Opacity,
@@ -77,26 +75,20 @@ function App() {
           section2Y={section2Y} 
         />
         
-        <WorkExperience 
-          section3Opacity={section3Opacity} 
-          section3Y={section3Y} 
-        />
+        <WorkExperience />
         
-        <Education 
-          section4Opacity={section4Opacity} 
-          section4Y={section4Y} 
-        />
+        <Education />
         
-        <Projects 
-          section5Opacity={section5Opacity} 
-          section5Y={section5Y} 
+        <Projects
+          section5Opacity={section5Opacity}
+          section5Y={section5Y}
         />
         
         <CloudResumeStack 
-          section6Opacity={section6Opacity} 
-          section6Y={section6Y} 
           cloudResumeRef={cloudResumeRef} 
-          isBlinking={isBlinking} 
+          isBlinking={isBlinking}
+          section6Opacity={section6Opacity}
+          section6Y={section6Y}
         />
       </main>
     </div>

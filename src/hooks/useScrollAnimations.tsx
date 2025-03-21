@@ -8,12 +8,12 @@ export const useScrollAnimations = () => {
   const section1Y = useTransform(scrollYProgress, [0, 0.13], [0, -50]);
 
   // Section 2: Professional Summary & Technical Skills
-  const section2Opacity = useTransform(scrollYProgress, [0.13, 0.28, 0.28, 0.4], [0, 1, 1, 0]);
-  const section2Y = useTransform(scrollYProgress, [0.13, 0.28], [50, 0]);
+  const section2Opacity = useTransform(scrollYProgress, [0.13, 0.25, 0.25, 0.30], [0, 1, 1, 0]);
+  const section2Y = useTransform(scrollYProgress, [0.13, 0.25], [50, 0]);
 
   // Section 3: Work Experience
-  const section3Opacity = useTransform(scrollYProgress, [0.4, 0.55, 0.55, 0.65], [0, 1, 1, 0]);
-  const section3Y = useTransform(scrollYProgress, [0.4, 0.55], [50, 0]);
+  const section3Opacity = useTransform(scrollYProgress, [0.32, 0.55, 0.55, 0.65], [0, 1, 1, 0]);
+  const section3Y = useTransform(scrollYProgress, [0.32, 0.55], [50, 0]);
   
   // Section 4: Education
   const section4Opacity = useTransform(scrollYProgress, [0.65, 0.75, 0.75, 0.82], [0, 1, 1, 0]);
