@@ -14,13 +14,13 @@ const ProfessionalSummary: React.FC<Props> = ({ section2Opacity, section2Y }) =>
         y: section2Y,
         position: 'sticky',
         top: 0,
-        height: '130vh',
+        height: '100vh',
         display: 'flex',
         alignItems: 'center',
         justifyContent: 'center',
         zIndex: 2
       }}
-      className="relative"
+      className="relative mb-[120vh]"
     >
       <div className="w-full max-w-4xl mx-auto px-4 absolute top-1/2 -translate-y-1/2">
         <div className="grid md:grid-cols-3 gap-8">
