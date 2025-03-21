@@ -1,4 +1,5 @@
 import React, { useEffect, useState, useRef } from 'react';
+import { useHeaderScrollAnimations } from './hooks/useHeaderScrollAnimations';
 import Header from './components/Header';
 import ProfessionalSummary from './components/ProfessionalSummary';
 import WorkExperience from './components/WorkExperience';
@@ -15,6 +16,9 @@ function App() {
   const cloudResumeRef = useRef<HTMLDivElement>(null);
   const [isBlinking, setIsBlinking] = useState(false);
   
+  // Use custom hook for header scroll animations
+  const { section1Opacity, section1Y, section2Opacity, section2Y } = useHeaderScrollAnimations();
+
   useEffect(() => {
     const fetchCount = async () => {
       if (apiCalledRef.current) return;
@@ -49,11 +53,16 @@ function App() {
     <div className="min-h-screen bg-gray-50">
       <main className="relative">
         <Header 
+          section1Opacity={section1Opacity} 
+          section1Y={section1Y} 
           visitorCount={visitorCount} 
           onVisitorClick={handleVisitorClick} 
         />
         
-        <ProfessionalSummary />
+        <ProfessionalSummary 
+          section2Opacity={section2Opacity} 
+          section2Y={section2Y} 
+        />
         
         <WorkExperience />
         
