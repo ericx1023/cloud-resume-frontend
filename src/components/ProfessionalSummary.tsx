@@ -28,7 +28,7 @@ const ProfessionalSummary: React.FC<Props> = ({ section2Opacity, section2Y }) =>
             <h2 className="text-3xl font-bold text-gray-800 mb-4">Professional Summary</h2>
             <p className="text-gray-600 text-lg leading-relaxed">
               Frontend Engineer with 10+ years of experience architecting scalable web applications and driving technical excellence. 
-              Expertise in <span className="bg-yellow-100 text-yellow-800 px-1 rounded">React</span>, <span className="bg-yellow-100 text-yellow-800 px-1 rounded">Angular</span>, and modern frontend frameworks, with a proven track record implementing frontend architectures and <span className="bg-yellow-100 text-yellow-800 px-1 rounded">Web Components</span>. 
+              Expertise in <span className="bg-yellow-100 text-yellow-800 px-1 rounded">React</span>, <span className="bg-yellow-100 text-yellow-800 px-1 rounded">Angular</span>, and modern frontend frameworks, with a proven track record implementing frontend architectures and <span className="bg-yellow-100 text-yellow-800 px-1 rounded">Next.js</span>. 
               Recognized for technical mentorship, establishing engineering best practices, and successfully migrating legacy systems to modern stacks while maintaining production reliability.
             </p>
           </div>
@@ -49,7 +49,7 @@ const ProfessionalSummary: React.FC<Props> = ({ section2Opacity, section2Y }) =>
               </div>
               <div>
                 <h3 className="text-xl font-medium text-gray-800">Tools & Technologies</h3>
-                <p className="text-gray-600 text-lg">Git, Docker, <span className="bg-yellow-100 text-yellow-800 px-1 rounded">Web Components</span>, <span className="bg-yellow-100 text-yellow-800 px-1 rounded">Micro Frontend</span></p>
+                <p className="text-gray-600 text-lg">Git, Docker, <span className="bg-yellow-100 text-yellow-800 px-1 rounded">Next.js</span>, <span className="bg-yellow-100 text-yellow-800 px-1 rounded">Micro Frontend</span></p>
               </div>
               <div>
                 <h3 className="text-xl font-medium text-gray-800">Legacy Skills</h3>

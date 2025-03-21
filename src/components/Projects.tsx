@@ -14,15 +14,16 @@ const Projects: React.FC<Props> = ({ section5Opacity, section5Y }) => {
         y: section5Y,
         position: 'sticky',
         top: 0,
-        height: '100vh',
+        height: 'auto',
+        minHeight: '100vh',
         display: 'flex',
         alignItems: 'center',
         justifyContent: 'center',
         zIndex: 4
       }}
-      className="relative"
+      className="relative py-10 md:py-0"
     >
-      <div className="w-full max-w-4xl mx-auto px-4 absolute top-1/2 -translate-y-1/2">
+      <div className="w-full max-w-4xl mx-auto px-4 mb-32 md:pb-0 md:absolute md:top-1/2 md:-translate-y-1/2">
         <h2 className="text-3xl font-bold text-gray-800 mb-8 text-center">Projects</h2>
         <div className="grid md:grid-cols-2 gap-8">
           <div className="bg-white shadow-lg rounded-lg p-6 hover:shadow-xl transition-shadow">
@@ -45,7 +46,7 @@ const Projects: React.FC<Props> = ({ section5Opacity, section5Y }) => {
             </ul>
           </div>
 
-          <div className="bg-white shadow-lg rounded-lg p-6 hover:shadow-xl transition-shadow md:col-span-2">
+          <div className="bg-white shadow-lg rounded-lg p-6 hover:shadow-xl transition-shadow md:col-span-2 mb-16 md:mb-0">
             <h3 className="text-xl font-semibold text-gray-800">Blog Website</h3>
             <p className="text-blue-600 font-medium">Full Stack Developer</p>
             <p className="text-gray-500 italic mb-2">Tech stack: Next.js, Contentful CMS</p>
