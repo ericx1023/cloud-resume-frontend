@@ -1,5 +1,4 @@
 import React, { useEffect, useState, useRef } from 'react';
-import { useScrollAnimations } from './hooks/useScrollAnimations';
 import Header from './components/Header';
 import ProfessionalSummary from './components/ProfessionalSummary';
 import WorkExperience from './components/WorkExperience';
@@ -16,22 +15,6 @@ function App() {
   const cloudResumeRef = useRef<HTMLDivElement>(null);
   const [isBlinking, setIsBlinking] = useState(false);
   
-  // Use custom hook for scroll animations
-  const {
-    section1Opacity,
-    section1Y,
-    section2Opacity,
-    section2Y,
-    section3Opacity,
-    section3Y,
-    section4Opacity,
-    section4Y,
-    section5Opacity,
-    section5Y,
-    section6Opacity,
-    section6Y
-  } = useScrollAnimations();
-
   useEffect(() => {
     const fetchCount = async () => {
       if (apiCalledRef.current) return;
@@ -66,35 +49,19 @@ function App() {
     <div className="min-h-screen bg-gray-50">
       <main className="relative">
         <Header 
-          section1Opacity={section1Opacity} 
-          section1Y={section1Y} 
           visitorCount={visitorCount} 
           onVisitorClick={handleVisitorClick} 
         />
         
-        <ProfessionalSummary 
-          section2Opacity={section2Opacity} 
-          section2Y={section2Y} 
-        />
+        <ProfessionalSummary />
         
-        <WorkExperience 
-          section3Opacity={section3Opacity} 
-          section3Y={section3Y} 
-        />
+        <WorkExperience />
         
-        <Education 
-          section4Opacity={section4Opacity} 
-          section4Y={section4Y} 
-        />
+        <Education />
         
-        <Projects 
-          section5Opacity={section5Opacity} 
-          section5Y={section5Y} 
-        />
+        <Projects />
         
         <CloudResumeStack 
-          section6Opacity={section6Opacity} 
-          section6Y={section6Y} 
           cloudResumeRef={cloudResumeRef} 
           isBlinking={isBlinking} 
         />

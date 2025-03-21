@@ -1,27 +1,11 @@
 import React from 'react';
-import { motion } from 'framer-motion';
 
-type Props = {
-  section2Opacity: any;
-  section2Y: any;
-};
+type Props = {};
 
-const ProfessionalSummary: React.FC<Props> = ({ section2Opacity, section2Y }) => {
+const ProfessionalSummary: React.FC<Props> = () => {
   return (
-    <motion.div
-      style={{
-        opacity: section2Opacity,
-        y: section2Y,
-        position: 'sticky',
-        top: 0,
-        height: '100vh',
-        display: 'flex',
-        alignItems: 'center',
-        justifyContent: 'center'
-      }}
-      className="relative"
-    >
-      <div className="grid md:grid-cols-3 gap-8 w-full max-w-4xl mx-auto px-4 absolute top-1/2 -translate-y-1/2">
+    <div className="w-full max-w-4xl mx-auto px-4 py-16">
+      <div className="grid md:grid-cols-3 gap-8">
         <div className="md:col-span-2">
           <h2 className="text-3xl font-bold text-gray-800 mb-4">Professional Summary</h2>
           <p className="text-gray-600 text-lg leading-relaxed">
@@ -56,7 +40,7 @@ const ProfessionalSummary: React.FC<Props> = ({ section2Opacity, section2Y }) =>
           </div>
         </div>
       </div>
-    </motion.div>
+    </div>
   );
 };
 

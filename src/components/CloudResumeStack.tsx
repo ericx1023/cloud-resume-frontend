@@ -1,52 +1,23 @@
 import React from 'react';
-import { motion } from 'framer-motion';
 import styles from './CloudResumeStack.module.css';
 
 type Props = {
-  section6Opacity: any;
-  section6Y: any;
   cloudResumeRef: React.RefObject<HTMLDivElement>;
   isBlinking: boolean;
 };
 
-const CloudResumeStack: React.FC<Props> = ({ section6Opacity, section6Y, cloudResumeRef, isBlinking }) => {
+const CloudResumeStack: React.FC<Props> = ({ cloudResumeRef, isBlinking }) => {
   return (
-    <motion.div
+    <div
       ref={cloudResumeRef}
-      style={{
-        opacity: section6Opacity,
-        y: section6Y,
-        position: 'sticky',
-        top: 0,
-        height: '100vh',
-        display: 'flex',
-        alignItems: 'center',
-        justifyContent: 'center'
-      }}
-      className="relative"
+      className="w-full py-16"
     >
       <div className={`max-w-3xl mx-auto px-4 w-full ${styles.cloudResumeContainer}`}>
-        <motion.h2 
+        <h2 
           className="text-3xl font-bold mb-6 text-center"
-          animate={{
-            color: isBlinking 
-              ? [
-                  'rgb(31, 41, 55)', // text-gray-800 (黑色)
-                  'rgb(234, 179, 8)', // text-yellow-500 (黃色)
-                  'rgb(31, 41, 55)', // text-gray-800 (黑色)
-                  'rgb(234, 179, 8)', // text-yellow-500 (黃色)
-                  'rgb(31, 41, 55)' // text-gray-800 (黑色)
-                ]
-              : 'rgb(31, 41, 55)' // text-gray-800 (黑色)
-          }}
-          transition={{
-            duration: 2,
-            times: [0, 0.25, 0.5, 0.75, 1],
-            ease: "easeInOut"
-          }}
         >
           Cloud Resume Stack
-        </motion.h2>
+        </h2>
         <div className="bg-white shadow-xl rounded-lg p-6 space-y-6">
           <div>
             <h3 className="text-xl font-medium text-gray-800 border-b pb-2">AWS Services</h3>
@@ -153,7 +124,7 @@ const CloudResumeStack: React.FC<Props> = ({ section6Opacity, section6Y, cloudRe
           </div>
         </div>
       </div>
-    </motion.div>
+    </div>
   );
 };
 
