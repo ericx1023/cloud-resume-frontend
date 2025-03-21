@@ -3,19 +3,19 @@ import { motion } from 'framer-motion';
 import styles from './CloudResumeStack.module.css';
 
 type Props = {
-  section5Opacity: any;
-  section5Y: any;
+  section6Opacity: any;
+  section6Y: any;
   cloudResumeRef: React.RefObject<HTMLDivElement>;
   isBlinking: boolean;
 };
 
-const CloudResumeStack: React.FC<Props> = ({ section5Opacity, section5Y, cloudResumeRef, isBlinking }) => {
+const CloudResumeStack: React.FC<Props> = ({ section6Opacity, section6Y, cloudResumeRef, isBlinking }) => {
   return (
     <motion.div
       ref={cloudResumeRef}
       style={{
-        opacity: section5Opacity,
-        y: section5Y,
+        opacity: section6Opacity,
+        y: section6Y,
         position: 'sticky',
         top: 0,
         height: '100vh',

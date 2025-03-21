@@ -2,16 +2,16 @@ import React from 'react';
 import { motion } from 'framer-motion';
 
 type Props = {
-  section4Opacity: any;
-  section4Y: any;
+  section5Opacity: any;
+  section5Y: any;
 };
 
-const Projects: React.FC<Props> = ({ section4Opacity, section4Y }) => {
+const Projects: React.FC<Props> = ({ section5Opacity, section5Y }) => {
   return (
     <motion.div
       style={{
-        opacity: section4Opacity,
-        y: section4Y,
+        opacity: section5Opacity,
+        y: section5Y,
         position: 'sticky',
         top: 0,
         height: '100vh',
