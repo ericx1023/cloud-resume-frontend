@@ -1,29 +1,99 @@
 import React from 'react';
+import { Timeline } from './ui/timeline';
 
 type Props = {};
 
 const Education: React.FC<Props> = () => {
+  const educations = [
+    {
+      title: "2014",
+      content: (
+        <div className="bg-white shadow-lg rounded-lg p-6">
+          <h3 className="text-xl font-semibold text-gray-800">PC School Taiwan</h3>
+          <p className="text-blue-600 font-medium">Java Programming & Android Development</p>
+          <div className="mt-2 mb-4">
+            <p className="text-sm text-gray-500 font-medium">Key topics:</p>
+            <div className="flex flex-wrap gap-2 mt-1">
+              {["Java", "OOP", "Android", "Mobile Development", "UI Design"].map((topic, i) => (
+                <span key={i} className="px-2 py-1 text-xs rounded-full bg-gray-100 text-gray-700">
+                  {topic}
+                </span>
+              ))}
+            </div>
+          </div>
+          <ul className="mt-4 space-y-2 list-disc list-inside">
+            <li className="text-gray-600 text-sm md:text-base">
+              Built several Android applications as part of coursework
+            </li>
+            <li className="text-gray-600 text-sm md:text-base">
+              Learned fundamental programming concepts and mobile development principles
+            </li>
+          </ul>
+        </div>
+      ),
+    },{
+      title: "2005 - 2006",
+      content: (
+        <div className="bg-white shadow-lg rounded-lg p-6 mb-6">
+          <h3 className="text-xl font-semibold text-gray-800">University of Kent, Canterbury, UK</h3>
+          <p className="text-blue-600 font-medium">MSc. Group Processing and Intergroup Relations</p>
+          <div className="mt-2 mb-4">
+            <p className="text-sm text-gray-500 font-medium">Key courses:</p>
+            <div className="flex flex-wrap gap-2 mt-1">
+              {["Social Psychology", "Group Dynamics", "Research Methods", "Statistics"].map((course, i) => (
+                <span key={i} className="px-2 py-1 text-xs rounded-full bg-gray-100 text-gray-700">
+                  {course}
+                </span>
+              ))}
+            </div>
+          </div>
+          <ul className="mt-4 space-y-2 list-disc list-inside">
+            <li className="text-gray-600 text-sm md:text-base">
+              Conducted research on intergroup relations and social identity theory
+            </li>
+            <li className="text-gray-600 text-sm md:text-base">
+              Developed skills in quantitative and qualitative research methods
+            </li>
+          </ul>
+        </div>
+      ),
+    },
+    {
+      title: "1998 - 2003",
+      content: (
+        <div className="bg-white shadow-lg rounded-lg p-6 mb-6">
+          <h3 className="text-xl font-semibold text-gray-800">Chun-Yuan Christian University</h3>
+          <p className="text-blue-600 font-medium">Bachelor of Psychology</p>
+          <div className="mt-2 mb-4">
+            <p className="text-sm text-gray-500 font-medium">Key courses:</p>
+            <div className="flex flex-wrap gap-2 mt-1">
+              {["General Psychology", "Cognitive Psychology", "Experimental Psychology", "Clinical Psychology"].map((course, i) => (
+                <span key={i} className="px-2 py-1 text-xs rounded-full bg-gray-100 text-gray-700">
+                  {course}
+                </span>
+              ))}
+            </div>
+          </div>
+          <ul className="mt-4 space-y-2 list-disc list-inside">
+            <li className="text-gray-600 text-sm md:text-base">
+              Participated in various psychological research projects
+            </li>
+            <li className="text-gray-600 text-sm md:text-base">
+              Developed a strong foundation in understanding human behavior and cognition
+            </li>
+          </ul>
+        </div>
+      ),
+    },
+   
+  ];
+
   return (
-    <div className="w-full max-w-4xl mx-auto px-4 py-16">
-      <h2 className="text-2xl font-bold text-gray-800 mb-6">Education</h2>
-      <div className="grid md:grid-cols-3 gap-8">
-        <div className="bg-white shadow-lg rounded-lg p-6 hover:shadow-xl transition-shadow">
-          <h3 className="font-medium text-gray-800">PC School Taiwan</h3>
-          <p className="text-gray-600">Java programming & Android Development</p>
-          <p className="text-gray-600">Feb 2014 - Dec 2014</p>
-        </div>
-        <div className="bg-white shadow-lg rounded-lg p-6 hover:shadow-xl transition-shadow">
-          <h3 className="font-medium text-gray-800">University of Kent, Canterbury, UK</h3>
-          <p className="text-gray-600">MSc. Group Processing and Intergroup Relations</p>
-          <p className="text-gray-600">Aug 2005 - Aug 2006</p>
-        </div>
-        <div className="bg-white shadow-lg rounded-lg p-6 hover:shadow-xl transition-shadow">
-          <h3 className="font-medium text-gray-800">Chun-Yuan Christian University</h3>
-          <p className="text-gray-600">Bachelor of Psychology</p>
-          <p className="text-gray-600">Sep 1998 - Sep 2003</p>
-        </div>
-      </div>
-    </div>
+    <Timeline 
+      data={educations}
+      title="Education"
+      subtitle="My academic journey and qualifications"
+    />
   );
 };
 

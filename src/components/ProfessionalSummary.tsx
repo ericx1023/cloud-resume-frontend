@@ -18,7 +18,7 @@ const ProfessionalSummary: React.FC<Props> = ({ section2Opacity, section2Y }) =>
         display: 'flex',
         alignItems: 'center',
         justifyContent: 'center',
-        zIndex: 10
+        zIndex: 5
       }}
       className="relative"
     >

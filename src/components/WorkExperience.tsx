@@ -98,7 +98,11 @@ const WorkExperience: React.FC<Props> = () => {
   ];
 
   return (
-    <Timeline data={experiences} />
+    <Timeline 
+      data={experiences}
+      title="Work Experience"
+      subtitle="My professional software development journey"
+    />
   );
 };
 
