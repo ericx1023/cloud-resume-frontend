@@ -79,7 +79,7 @@ const Projects: React.FC<Props> = ({ section5Opacity, section5Y }) => {
                 </svg>
                 GitHub Repository
               </a>
-              <a href="https://https://psychevalley.org/" target="_blank" rel="noopener noreferrer" className="inline-flex items-center text-green-600 hover:text-green-800">
+              <a href="https://psychevalley.org/" target="_blank" rel="noopener noreferrer" className="inline-flex items-center text-green-600 hover:text-green-800">
                 <svg className="w-5 h-5 mr-2" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                   <path d="M21.64 13a1 1 0 0 0-1.05-.14 8.05 8.05 0 0 1-3.37.73 8.15 8.15 0 0 1-8.14-8.14 8.59 8.59 0 0 1 .25-2A1 1 0 0 0 8 2.36 10.14 10.14 0 1 0 22 14.05 1 1 0 0 0 21.64 13Z" />
                 </svg>
