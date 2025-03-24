@@ -30,7 +30,7 @@ const CloudResumeStack: React.FC<Props> = ({ cloudResumeRef, isBlinking, section
         <h2 
           className="text-3xl font-bold mb-6 text-center"
         >
-          Cloud Resume Stack
+          Site Tech Stack
         </h2>
         <div className="bg-white shadow-xl rounded-lg p-6 space-y-6">
           <div>
