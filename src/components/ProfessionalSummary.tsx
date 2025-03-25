@@ -38,21 +38,21 @@ const ProfessionalSummary: React.FC<Props> = ({ section2Opacity, section2Y }) =>
               <div>
                 <h3 className="text-xl font-medium text-gray-800">Frontend</h3>
                 <p className="text-gray-600 text-lg">
-                  <span className="bg-yellow-100 text-yellow-800 px-1 rounded">React</span>,
                   <span className="bg-yellow-100 text-yellow-800 px-1 rounded">Angular</span>,
-                  TypeScript, Next.js, Rx.js, Redux, Tailwind CSS
+                  <span className="bg-yellow-100 text-yellow-800 px-1 rounded">React</span>,
+                  TypeScript, Rx.js, Redux, Tailwind CSS
                 </p>
               </div>
               <div>
                 <h3 className="text-xl font-medium text-gray-800">Backend</h3>
-                <p className="text-gray-600 text-lg">Node.js, Python, PostgreSQL, Supabase, Firebase</p>
+                <p className="text-gray-600 text-lg">Node.js, Python, Next.js, GraphQL, REST APIs</p>
               </div>
               <div>
                 <h3 className="text-xl font-medium text-gray-800">Tools & Technologies</h3>
-                <p className="text-gray-600 text-lg">Git, Docker, <span className="bg-yellow-100 text-yellow-800 px-1 rounded">Next.js</span>, <span className="bg-yellow-100 text-yellow-800 px-1 rounded">Micro Frontend</span></p>
+                <p className="text-gray-600 text-lg">Git, Docker, PostgreSQL, Supabase, Firebase, <span className="bg-yellow-100 text-yellow-800 px-1 rounded">Web Components</span></p>
               </div>
               <div>
-                <h3 className="text-xl font-medium text-gray-800">Legacy Skills</h3>
+                <h3 className="text-xl font-medium text-gray-800">Other Skills</h3>
                 <p className="text-gray-600 text-lg">Backbone.js, Stage.js, jQuery, SVN</p>
               </div>
             </div>
