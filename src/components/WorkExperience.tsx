@@ -11,12 +11,12 @@ const WorkExperience: React.FC<Props> = () => {
       title: "2022 - Present",
       content: (
         <div className="bg-white shadow-lg rounded-lg p-6 mb-3">
-          <h3 className="text-xl md:text-2xl font-semibold text-gray-800">Software Development Manager</h3>
+          <h3 className="text-xl md:text-2xl font-semibold text-gray-800">Staff Software Development Engineer</h3>
           <p className="text-blue-600 font-medium">Fortinet, Inc.</p>
           <div className="mt-2 mb-4">
             <p className="text-sm text-gray-500 font-medium">Tech stack:</p>
             <div className="flex flex-wrap gap-2 mt-1">
-              {["React", "Angular", "TypeScript", "Rx.js", "Next.js", "Docker", "Web Component"].map((tech, i) => (
+              {["React", "Angular", "Rx.js", "TypeScript","Next.js", "Docker", "Web Component"].map((tech, i) => (
                 <span key={i} className="px-3 py-1 text-sm rounded-full bg-gray-100 text-gray-700">
                   {tech}
                 </span>
