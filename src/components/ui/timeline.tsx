@@ -12,6 +12,29 @@ interface TimelineEntry {
   content: React.ReactNode;
 }
 
+// 添加行動裝置檢測 hook
+const useIsMobile = () => {
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    // 初始檢測
+    const checkIfMobile = () => {
+      setIsMobile(window.innerWidth < 768); // md breakpoint 通常是 768px
+    };
+    
+    // 頁面加載時檢測
+    checkIfMobile();
+    
+    // 添加 resize 事件監聽器
+    window.addEventListener('resize', checkIfMobile);
+    
+    // 清理事件監聽器
+    return () => window.removeEventListener('resize', checkIfMobile);
+  }, []);
+
+  return isMobile;
+};
+
 export const Timeline = ({ 
   data,
   title = "Work Experience",
@@ -24,14 +47,37 @@ export const Timeline = ({
   const ref = useRef<HTMLDivElement>(null);
   const containerRef = useRef<HTMLDivElement>(null);
   const [height, setHeight] = useState(0);
+  const isMobile = useIsMobile();
+  
+  // IntersectionObserver 實現簡單的可見性檢測
+  const [isVisible, setIsVisible] = useState(false);
 
   useEffect(() => {
     if (ref.current) {
       const rect = ref.current.getBoundingClientRect();
       setHeight(rect.height);
+      
+      // 使用 IntersectionObserver 來檢測元件是否可見
+      const observer = new IntersectionObserver(
+        ([entry]) => {
+          setIsVisible(entry.isIntersecting);
+        },
+        {
+          threshold: 0.1, // 10% 的元件可見時觸發
+        }
+      );
+      
+      observer.observe(ref.current);
+      
+      return () => {
+        if (ref.current) {
+          observer.unobserve(ref.current);
+        }
+      };
     }
   }, [ref]);
 
+  // 只在非行動裝置上使用捲動動畫
   const { scrollYProgress } = useScroll({
     target: containerRef,
     offset: ["start 10%", "end 50%"],
@@ -83,13 +129,26 @@ export const Timeline = ({
           }}
           className="absolute md:left-8 left-8 top-0 overflow-hidden w-[2px] bg-[linear-gradient(to_bottom,var(--tw-gradient-stops))] from-transparent from-[0%] via-gray-300 to-transparent to-[99%]  [mask-image:linear-gradient(to_bottom,transparent_0%,black_10%,black_90%,transparent_100%)] "
         >
-          <motion.div
-            style={{
-              height: heightTransform,
-              opacity: opacityTransform,
-            }}
-            className="absolute inset-x-0 top-0 w-[2px] bg-gradient-to-t from-blue-500 via-blue-400 to-transparent from-[0%] via-[10%] rounded-full"
-          />
+          {isMobile ? (
+            // 行動裝置：靜態顯示，只有簡單的可見性檢測淡入效果
+            <div 
+              className={`absolute inset-x-0 top-0 w-[2px] bg-gradient-to-t from-blue-500 via-blue-400 to-transparent from-[0%] via-[10%] rounded-full transition-opacity duration-1000 ${
+                isVisible ? 'opacity-100' : 'opacity-0'
+              }`}
+              style={{ 
+                height: '100%' 
+              }}
+            />
+          ) : (
+            // 桌面：原本的捲動連結動畫
+            <motion.div
+              style={{
+                height: heightTransform,
+                opacity: opacityTransform,
+              }}
+              className="absolute inset-x-0 top-0 w-[2px] bg-gradient-to-t from-blue-500 via-blue-400 to-transparent from-[0%] via-[10%] rounded-full"
+            />
+          )}
         </div>
       </div>
     </div>

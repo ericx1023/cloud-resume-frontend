@@ -32,7 +32,7 @@ const Projects: React.FC<Props> = ({ section5Opacity, section5Y }) => {
             <p className="text-gray-500 italic mb-2">Tech stack: Next.js, PostgreSQL, Comfy UI, Flux</p>
             <ul className="mt-2 list-disc list-inside text-gray-600 space-y-1">
               <li className="text-lg">Built full-stack AI model training platform using Next.js, Supabase, and Replicate, enabling streamlined image model training through Flux 1.0</li>
-              <li className="text-lg">Engineered complete user authentication and data workflows using Clerk, handling image processing and model training operations</li>
+              <li className="text-lg">Engineered complete user authentication/ management system, Subscription/payment processing, handling image processing and model fine-tuning operations</li>
             </ul>
             <div className="mt-4">
               <a href="https://github.com/ericx1023/imageAI-subscription" target="_blank" rel="noopener noreferrer" className="inline-flex items-center text-blue-600 hover:text-blue-800">
