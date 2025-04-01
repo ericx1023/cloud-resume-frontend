@@ -5,9 +5,9 @@ type Props = {};
 const ProfessionalSummary: React.FC<Props> = () => {
   return (
     <div
-      className="min-h-screen flex items-center justify-center relative"
+      className="min-h-screen flex items-center justify-center relative px-4 py-16 bg-gray-100"
     >
-      <div className="w-full max-w-4xl mx-auto px-4 absolute top-1/2 -translate-y-1/2">
+      <div className="w-full max-w-4xl mx-auto bg-white shadow-lg rounded-lg p-8">
         <div className="grid md:grid-cols-3 gap-8">
           <div className="md:col-span-2">
             <h2 className="text-3xl font-bold text-gray-800 mb-4">Professional Summary</h2>

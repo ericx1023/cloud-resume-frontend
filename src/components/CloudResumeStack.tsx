@@ -10,9 +10,9 @@ const CloudResumeStack: React.FC<Props> = ({ cloudResumeRef, isBlinking }) => {
   return (
     <div
       ref={cloudResumeRef}
-      className="min-h-screen flex items-center justify-center relative"
+      className="min-h-screen flex items-center justify-center relative bg-gray-100 px-4 py-16"
     >
-      <div className={`max-w-3xl mx-auto px-4 w-full absolute top-1/2 -translate-y-1/2 ${styles.cloudResumeContainer}`}>
+      <div className="max-w-3xl mx-auto w-full bg-white shadow-lg rounded-lg p-8">
         <h2 
           className="text-3xl font-bold mb-6 text-center"
         >

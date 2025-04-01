@@ -89,7 +89,7 @@ const Education: React.FC<Props> = () => {
   ];
 
   return (
-    <div className="pb-20 md:pb-0">
+    <div className="pb-20 md:pb-0 bg-gray-100">
       <Timeline 
         data={educations}
         title="Education"

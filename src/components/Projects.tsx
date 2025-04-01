@@ -5,9 +5,9 @@ type Props = {};
 const Projects: React.FC<Props> = () => {
   return (
     <div
-      className="min-h-screen py-10 md:py-0 flex items-center justify-center relative"
+      className="min-h-screen py-10 md:py-16 flex items-center justify-center relative bg-gray-100 px-4"
     >
-      <div className="w-full max-w-4xl mx-auto px-4 mb-32 md:pb-0 md:absolute md:top-1/2 md:-translate-y-1/2">
+      <div className="w-full max-w-4xl mx-auto bg-white shadow-lg rounded-lg p-8">
         <h2 className="text-3xl font-bold text-gray-800 mb-8 text-center">Projects</h2>
         <div className="grid md:grid-cols-2 gap-8">
           <div className="bg-white shadow-lg rounded-lg p-6 hover:shadow-xl transition-shadow">
