@@ -62,8 +62,8 @@ const CloudResumeStack: React.FC<Props> = ({ cloudResumeRef, isBlinking }) => {
                   <span>for responsive design</span>
                 </li>
                 <li className="flex items-center space-x-2">
-                  <span className="bg-blue-100 text-blue-800 px-2 py-1 rounded font-medium">Framer Motion</span>
-                  <span>for animations</span>
+                  <span className="bg-blue-100 text-blue-800 px-2 py-1 rounded font-medium">CSS Transitions</span>
+                  <span>for smooth interactions</span>
                 </li>
                 <li className="flex items-center space-x-2">
                   <span className="bg-blue-100 text-blue-800 px-2 py-1 rounded font-medium">JavaScript</span>

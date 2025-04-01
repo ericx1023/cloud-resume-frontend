@@ -1,10 +1,4 @@
 "use client";
-import {
-  useMotionValueEvent,
-  useScroll,
-  useTransform,
-  motion,
-} from "framer-motion";
 import React, { useEffect, useRef, useState } from "react";
 
 interface TimelineEntry {
@@ -77,15 +71,6 @@ export const Timeline = ({
     }
   }, [ref]);
 
-  // 只在非行動裝置上使用捲動動畫
-  const { scrollYProgress } = useScroll({
-    target: containerRef,
-    offset: ["start 10%", "end 50%"],
-  });
-
-  const heightTransform = useTransform(scrollYProgress, [0, 1], [0, height]);
-  const opacityTransform = useTransform(scrollYProgress, [0, 0.1], [0, 1]);
-
   return (
     <div
       className="w-full bg-gray-50 font-sans md:px-10"
@@ -129,26 +114,15 @@ export const Timeline = ({
           }}
           className="absolute md:left-8 left-8 top-0 overflow-hidden w-[2px] bg-[linear-gradient(to_bottom,var(--tw-gradient-stops))] from-transparent from-[0%] via-gray-300 to-transparent to-[99%]  [mask-image:linear-gradient(to_bottom,transparent_0%,black_10%,black_90%,transparent_100%)] "
         >
-          {isMobile ? (
-            // 行動裝置：靜態顯示，只有簡單的可見性檢測淡入效果
-            <div 
-              className={`absolute inset-x-0 top-0 w-[2px] bg-gradient-to-t from-blue-500 via-blue-400 to-transparent from-[0%] via-[10%] rounded-full transition-opacity duration-1000 ${
-                isVisible ? 'opacity-100' : 'opacity-0'
-              }`}
-              style={{ 
-                height: '100%' 
-              }}
-            />
-          ) : (
-            // 桌面：原本的捲動連結動畫
-            <motion.div
-              style={{
-                height: heightTransform,
-                opacity: opacityTransform,
-              }}
-              className="absolute inset-x-0 top-0 w-[2px] bg-gradient-to-t from-blue-500 via-blue-400 to-transparent from-[0%] via-[10%] rounded-full"
-            />
-          )}
+          <div 
+            className={`absolute inset-x-0 top-0 w-[2px] bg-gradient-to-t from-blue-500 via-blue-400 to-transparent from-[0%] via-[10%] rounded-full transition-opacity duration-1000 ${
+              isVisible ? 'opacity-100' : 'opacity-0'
+            }`}
+            style={{ 
+              height: isVisible ? '100%' : '0%',
+              transition: 'height 1.5s ease-in-out, opacity 1s'
+            }}
+          />
         </div>
       </div>
     </div>

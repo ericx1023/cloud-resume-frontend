@@ -1,5 +1,4 @@
-import React from 'react';
-import { motion } from 'framer-motion';
+import React, { useEffect, useState } from 'react';
 
 type Props = {
   visitorCount: number | null;
@@ -7,15 +6,25 @@ type Props = {
 };
 
 const VisitorCounter: React.FC<Props> = ({ visitorCount, onVisitorClick }) => {
+  const [isVisible, setIsVisible] = useState(false);
+  
+  useEffect(() => {
+    // 使用簡單的 setTimeout 來模擬進入視圖的動畫效果
+    const timer = setTimeout(() => {
+      setIsVisible(true);
+    }, 300);
+    
+    return () => clearTimeout(timer);
+  }, []);
+  
   return (
-    <motion.section
-      initial={{ opacity: 0, y: 20 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true }}
-      transition={{ duration: 0.8 }}
-      className="bg-blue-50 p-4 rounded-lg mt-8 hover:bg-blue-100 transition-colors cursor-pointer font-montserrat"
+    <section
+      className={`bg-blue-50 p-4 rounded-lg mt-8 hover:bg-blue-100 transition-all duration-800 font-montserrat cursor-pointer ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-5'}`}
       onClick={onVisitorClick}
-      style={{ cursor: "pointer" }}
+      style={{ 
+        cursor: "pointer",
+        transition: "opacity 0.8s ease, transform 0.8s ease"
+      }}
     >
       <p className="text-center text-gray-600">
         {visitorCount === null ? (
@@ -46,7 +55,7 @@ const VisitorCounter: React.FC<Props> = ({ visitorCount, onVisitorClick }) => {
           </>
         )}
       </p>
-    </motion.section>
+    </section>
   );
 };
 
