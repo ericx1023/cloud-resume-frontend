@@ -7,9 +7,9 @@ const ProfessionalSummary: React.FC<Props> = () => {
     <div
       className="min-h-screen flex items-center justify-center relative px-4 py-16 bg-gray-100"
     >
-      <div className="w-full max-w-4xl mx-auto bg-white shadow-lg rounded-lg p-8">
+      <div className="w-full max-w-4xl mx-auto bg-white shadow-lg rounded-lg p-8 mt-4">
         <div className="grid md:grid-cols-3 gap-8">
-          <div className="md:col-span-2">
+          <div className="md:col-span-2 bg-gray-50 border border-gray-100 rounded-lg p-6 hover:shadow-md transition-shadow">
             <h2 className="text-3xl font-bold text-gray-800 mb-4">Professional Summary</h2>
             <p className="text-gray-600 text-lg leading-relaxed">
               Frontend Engineer with 10+ years of experience architecting scalable web applications and driving technical excellence. 
@@ -17,7 +17,7 @@ const ProfessionalSummary: React.FC<Props> = () => {
               Recognized for technical mentorship, establishing engineering best practices, and successfully migrating legacy systems to modern stacks while maintaining production reliability.
             </p>
           </div>
-          <div>
+          <div className="bg-gray-50 border border-gray-100 rounded-lg p-6 hover:shadow-md transition-shadow">
             <h2 className="text-3xl font-bold text-gray-800 mb-4">Technical Skills</h2>
             <div className="space-y-2">
               <div>

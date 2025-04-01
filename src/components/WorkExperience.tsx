@@ -10,7 +10,7 @@ const WorkExperience: React.FC<Props> = () => {
     {
       title: "2022 - Present",
       content: (
-        <div className="bg-white shadow-lg rounded-lg p-6 mb-3">
+        <div className="bg-gray-50 border border-gray-100 rounded-lg p-6 mb-3 hover:shadow-md transition-shadow">
           <h3 className="text-xl md:text-2xl font-semibold text-gray-800">Staff Software Development Engineer</h3>
           <p className="text-blue-600 font-medium">Fortinet, Inc.</p>
           <div className="mt-2 mb-4">
@@ -40,7 +40,7 @@ const WorkExperience: React.FC<Props> = () => {
     {
       title: "2017 - 2022",
       content: (
-        <div className="bg-white shadow-lg rounded-lg p-6 mb-3">
+        <div className="bg-gray-50 border border-gray-100 rounded-lg p-6 mb-3 hover:shadow-md transition-shadow">
           <h3 className="text-xl md:text-2xl font-semibold text-gray-800">Senior Software Development Engineer</h3>
           <p className="text-blue-600 font-medium">Fortinet, Inc. Taiwan</p>
           <div className="mt-2 mb-4">
@@ -70,7 +70,7 @@ const WorkExperience: React.FC<Props> = () => {
     {
       title: "2015 - 2017",
       content: (
-        <div className="bg-white shadow-lg rounded-lg p-6">
+        <div className="bg-gray-50 border border-gray-100 rounded-lg p-6 hover:shadow-md transition-shadow">
           <h3 className="text-xl md:text-2xl font-semibold text-gray-800">Frontend Web Developer</h3>
           <p className="text-blue-600 font-medium">Jumbo Technology Corp</p>
           <div className="mt-2 mb-4">

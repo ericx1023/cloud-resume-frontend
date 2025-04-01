@@ -7,10 +7,10 @@ const Projects: React.FC<Props> = () => {
     <div
       className="min-h-screen py-10 md:py-16 flex items-center justify-center relative bg-gray-100 px-4"
     >
-      <div className="w-full max-w-4xl mx-auto bg-white shadow-lg rounded-lg p-8">
+      <div className="w-full max-w-4xl mx-auto bg-white shadow-lg rounded-lg p-8 mt-4">
         <h2 className="text-3xl font-bold text-gray-800 mb-8 text-center">Projects</h2>
         <div className="grid md:grid-cols-2 gap-8">
-          <div className="bg-white shadow-lg rounded-lg p-6 hover:shadow-xl transition-shadow">
+          <div className="bg-gray-50 border border-gray-100 rounded-lg p-6 hover:shadow-md transition-shadow">
             <h3 className="text-xl font-semibold text-gray-800">Image AI Model Trainer</h3>
             <p className="text-blue-600 font-medium">Full Stack Developer</p>
             <p className="text-gray-500 italic mb-2">Tech stack: Next.js, PostgreSQL, Comfy UI, Flux</p>
@@ -28,7 +28,7 @@ const Projects: React.FC<Props> = () => {
             </div>
           </div>
 
-          <div className="bg-white shadow-lg rounded-lg p-6 hover:shadow-xl transition-shadow">
+          <div className="bg-gray-50 border border-gray-100 rounded-lg p-6 hover:shadow-md transition-shadow">
             <h3 className="text-xl font-semibold text-gray-800">AI Newsletter Automation</h3>
             <p className="text-blue-600 font-medium">Full Stack Developer</p>
             <p className="text-gray-500 italic mb-2">Tech stack: Python, Crew AI</p>
@@ -46,7 +46,7 @@ const Projects: React.FC<Props> = () => {
             </div>
           </div>
 
-          <div className="bg-white shadow-lg rounded-lg p-6 hover:shadow-xl transition-shadow md:col-span-2 mb-16 md:mb-0">
+          <div className="bg-gray-50 border border-gray-100 rounded-lg p-6 hover:shadow-md transition-shadow md:col-span-2 mb-16 md:mb-0">
             <h3 className="text-xl font-semibold text-gray-800">Contentful Blog Website</h3>
             <p className="text-blue-600 font-medium">Full Stack Developer</p>
             <p className="text-gray-500 italic mb-2">Tech stack: Next.js, Contentful CMS, GraphQL, ESLint/Prettier, Husky</p>

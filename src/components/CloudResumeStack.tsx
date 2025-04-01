@@ -12,14 +12,14 @@ const CloudResumeStack: React.FC<Props> = ({ cloudResumeRef, isBlinking }) => {
       ref={cloudResumeRef}
       className="min-h-screen flex items-center justify-center relative bg-gray-100 px-4 py-16"
     >
-      <div className="max-w-3xl mx-auto w-full bg-white shadow-lg rounded-lg p-8">
+      <div className="max-w-3xl mx-auto w-full bg-white shadow-lg rounded-lg p-8 mt-4">
         <h2 
           className="text-3xl font-bold mb-6 text-center"
         >
           Site Tech Stack
         </h2>
-        <div className="bg-white shadow-xl rounded-lg p-6 space-y-6">
-          <div>
+        <div className="space-y-6">
+          <div className="bg-gray-50 border border-gray-100 rounded-lg p-6 hover:shadow-md transition-shadow">
             <h3 className="text-xl md:text-xl font-medium text-gray-800 border-b pb-2 font-bold">AWS Services</h3>
             <ul className="mt-4 grid grid-cols-1 md:grid-cols-2 gap-3">
               <li className="flex items-center space-x-2">
@@ -50,7 +50,7 @@ const CloudResumeStack: React.FC<Props> = ({ cloudResumeRef, isBlinking }) => {
           </div>
           
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            <div>
+            <div className="bg-gray-50 border border-gray-100 rounded-lg p-6 hover:shadow-md transition-shadow">
               <h3 className="text-xl md:text-xl font-medium text-gray-800 border-b pb-2 font-bold">Frontend</h3>
               <ul className="mt-4 space-y-2 text-gray-600">
                 <li className="flex items-center space-x-2">
@@ -72,7 +72,7 @@ const CloudResumeStack: React.FC<Props> = ({ cloudResumeRef, isBlinking }) => {
               </ul>
             </div>
             
-            <div>
+            <div className="bg-gray-50 border border-gray-100 rounded-lg p-6 hover:shadow-md transition-shadow">
               <h3 className="text-xl md:text-xl font-medium text-gray-800 border-b pb-2 font-bold">Backend & DevOps</h3>
               <ul className="mt-4 space-y-2 text-gray-600">
                 <li className="flex items-center space-x-2">
@@ -95,7 +95,7 @@ const CloudResumeStack: React.FC<Props> = ({ cloudResumeRef, isBlinking }) => {
             </div>
           </div>
           
-          <div>
+          <div className="bg-gray-50 border border-gray-100 rounded-lg p-6 hover:shadow-md transition-shadow">
             <h3 className="text-xl md:text-xl font-medium text-gray-800 border-b pb-2 font-bold">Documentation</h3>
             <div className="mt-4 flex flex-wrap gap-4">
               <a 

@@ -76,7 +76,7 @@ export const Timeline = ({
       className="w-full bg-gray-100 font-sans md:px-10 py-16"
       ref={containerRef}
     >
-      <div className="max-w-7xl mx-auto bg-white shadow-lg rounded-lg p-8">
+      <div className="max-w-7xl mx-auto bg-white shadow-lg rounded-lg p-8 mt-4">
         <div className="px-4 md:px-8 lg:px-10">
           <h2 className="text-2xl md:text-4xl mb-4 text-gray-800 max-w-4xl font-bold">
             {title}
