@@ -1,27 +1,11 @@
 import React from 'react';
-import { motion } from 'framer-motion';
 
-type Props = {
-  section5Opacity: any;
-  section5Y: any;
-};
+type Props = {};
 
-const Projects: React.FC<Props> = ({ section5Opacity, section5Y }) => {
+const Projects: React.FC<Props> = () => {
   return (
-    <motion.div
-      style={{
-        opacity: section5Opacity,
-        y: section5Y,
-        position: 'sticky',
-        top: 0,
-        height: 'auto',
-        minHeight: '100vh',
-        display: 'flex',
-        alignItems: 'center',
-        justifyContent: 'center',
-        zIndex: 4
-      }}
-      className="relative py-10 md:py-0"
+    <div
+      className="min-h-screen py-10 md:py-0 flex items-center justify-center relative"
     >
       <div className="w-full max-w-4xl mx-auto px-4 mb-32 md:pb-0 md:absolute md:top-1/2 md:-translate-y-1/2">
         <h2 className="text-3xl font-bold text-gray-800 mb-8 text-center">Projects</h2>
@@ -89,7 +73,7 @@ const Projects: React.FC<Props> = ({ section5Opacity, section5Y }) => {
           </div>
         </div>
       </div>
-    </motion.div>
+    </div>
   );
 };
 

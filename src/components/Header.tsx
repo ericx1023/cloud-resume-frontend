@@ -1,32 +1,19 @@
 import React from 'react';
 import { Github, Linkedin, Mail, MapPin, Phone } from 'lucide-react';
-import { motion } from 'framer-motion';
 import VisitorCounter from './VisitorCounter';
 import { getPersonalInfo } from '../config';
 
 type Props = {
-  section1Opacity: any;
-  section1Y: any;
   visitorCount: number | null;
   onVisitorClick: () => void;
 };
 
-const Header: React.FC<Props> = ({ section1Opacity, section1Y, visitorCount, onVisitorClick }) => {
+const Header: React.FC<Props> = ({ visitorCount, onVisitorClick }) => {
   const personalInfo = getPersonalInfo();
   
   return (
-    <motion.div
-      style={{
-        opacity: section1Opacity,
-        y: section1Y,
-        position: 'sticky',
-        top: 0,
-        height: '100vh',
-        display: 'flex',
-        alignItems: 'center',
-        justifyContent: 'center'
-      }}
-      className="w-screen left-1/2 -translate-x-1/2 bg-gradient-to-b from-sky-700 via-sky-600 to-transparent text-white font-montserrat"
+    <div
+      className="min-h-screen flex items-center justify-center w-screen bg-gradient-to-b from-slate-800 via-slate-700 to-transparent text-white font-montserrat"
     >
       <div className="flex flex-col items-center text-center max-w-5xl mx-auto px-4">
         <h1 className="text-4xl md:text-5xl font-bold mb-4 font-montserrat">{personalInfo.name}</h1>
@@ -56,7 +43,7 @@ const Header: React.FC<Props> = ({ section1Opacity, section1Y, visitorCount, onV
         
         <VisitorCounter visitorCount={visitorCount} onVisitorClick={onVisitorClick} />
       </div>
-    </motion.div>
+    </div>
   );
 };
 
