@@ -8,7 +8,7 @@ module.exports = {
         'body': ['Source Sans Pro', 'sans-serif'],
         'montserrat': ['Montserrat', 'sans-serif'],
         'brutalist-serif': ['Playfair Display', 'serif'],
-        'brutalist-pixel': ['VT323', 'monospace'],
+        'brutalist-pixel': ['monospace', 'serif'],
       },
     },
   },
