@@ -2,4 +2,61 @@
 @tailwind components;
 @tailwind utilities;
 
-@import './fonts.css'; 
+@import './fonts.css';
+
+:root {
+  --brutalist-black: #000000;
+  --brutalist-white: #ffffff;
+  --brutalist-accent: #ff0000; /* Red as default accent */
+}
+
+@layer base {
+  html {
+    /* Enable Scroll Snap on the main container */
+    scroll-snap-type: y mandatory;
+    scroll-behavior: smooth;
+    background-color: var(--brutalist-white);
+  }
+
+  body {
+    @apply m-0 p-0 overflow-x-hidden;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  /* Experimental Typography Effects */
+  .pixelated {
+    image-rendering: pixelated;
+    image-rendering: crisp-edges;
+    font-smooth: never;
+    -webkit-font-smoothing: none;
+    /* Adding SVG-based pixelation filter for text */
+    filter: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg'><filter id='pixelate'><feFlood x='4' y='4' height='2' width='2'/><feComposite width='8' height='8'/><feTile result='a'/><feComposite in='SourceGraphic' in2='a' operator='in'/><feMorphology operator='dilate' radius='2'/></filter></svg>#pixelate");
+  }
+
+  /* Retro Design Errors simulation (intentional) */
+  .glitch-text {
+    text-shadow: 2px 2px 0px var(--brutalist-accent);
+  }
+}
+
+@layer utilities {
+  /* Scroll Snap reset for mobile */
+  @media (max-width: 768px) {
+    html {
+      scroll-snap-type: none;
+    }
+    .snap-start {
+      scroll-snap-align: none;
+      height: auto !important;
+      min-height: 100vh;
+    }
+  }
+
+  .grid-bg {
+    background-size: 40px 40px;
+    background-image: 
+      linear-gradient(to right, #f0f0f0 1px, transparent 1px),
+      linear-gradient(to bottom, #f0f0f0 1px, transparent 1px);
+  }
+}

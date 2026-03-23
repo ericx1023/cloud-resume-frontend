@@ -19,7 +19,7 @@ const VisitorCounter: React.FC<Props> = ({ visitorCount, onVisitorClick }) => {
   
   return (
     <section
-      className={`bg-blue-50 p-4 rounded-lg mt-8 hover:bg-blue-100 transition-all duration-800 font-montserrat cursor-pointer ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-5'}`}
+      className={`p-4 rounded-lg mt-8 hover:bg-grey transition-all duration-800 font-montserrat cursor-pointer ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-5'}`}
       onClick={onVisitorClick}
       style={{ 
         cursor: "pointer",

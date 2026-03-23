@@ -28,7 +28,7 @@ For detailed deployment guides, please refer to the [deployment.md](deployment.m
 
 ## Learning Notes
 
-Experience and learning notes from this project can be found on [my blog](https://example.com/blog-post).
+Experience and learning notes from this project can be found on [my blog](https://psyched.it.com/).
 
 # Cloud Resume Challenge - React Frontend
 
@@ -98,15 +98,15 @@ This project uses GitHub Actions for automatic deployment. When code is pushed t
 
 # Frontend
 
-## 設置個人信息
+## Personal Info Setup
 
-為了保護您的個人信息，本專案使用配置文件來存儲個人信息，並且該配置文件不會被提交到 Git 倉庫。
+To protect your personal information, this project uses a configuration file for personal details that is NOT committed to Git.
 
-### 設置步驟
+### Setup Steps
 
-1. 在 `src/config` 目錄中找到 `personalInfo.example.json` 文件。
-2. 複製該文件並將其重命名為 `personalInfo.json`。
-3. 在 `personalInfo.json` 文件中填入您的個人信息。
+1. Find the `personalInfo.example.json` file in the `src/config` directory.
+2. Copy it and rename it to `personalInfo.json`.
+3. Fill in your details in `personalInfo.json`.
 
 ```json
 {
@@ -122,8 +122,8 @@ This project uses GitHub Actions for automatic deployment. When code is pushed t
 }
 ```
 
-### 注意事項
+### Notes
 
-- `personalInfo.json` 文件已添加到 `.gitignore` 文件中，不會被提交到 Git 倉庫。
-- 在部署前，請確保您已經正確設置了 `personalInfo.json` 文件。
-- 在 CI/CD 流程中，您可能需要手動添加此文件或通過安全機制（如 GitHub Secrets）注入這些信息。 
+- `personalInfo.json` is in `.gitignore` and won't be pushed.
+- Ensure `personalInfo.json` is set before deployment.
+- For CI/CD, you may need to inject this via GitHub Secrets.

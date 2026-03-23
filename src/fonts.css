@@ -1,24 +1,10 @@
-/* 字體樣式設定 */
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=VT323&display=swap');
 
-/* 為標題使用 Playfair Display */
-h1, h2, h3, h4, h5, h6 {
+/* Fallback if @import fails in some environments */
+.font-serif-brutalist {
   font-family: 'Playfair Display', serif;
 }
 
-/* 為內文使用 Source Sans Pro */
-body, p, div, span, li, a, button {
-  font-family: 'Source Sans Pro', sans-serif;
+.font-pixel-brutalist {
+  font-family: 'VT323', monospace;
 }
-
-/* 特定類型元素的樣式調整 */
-.font-heading {
-  font-family: 'Playfair Display', serif;
-}
-
-.font-body {
-  font-family: 'Source Sans Pro', sans-serif;
-}
-
-.font-montserrat {
-  font-family: 'Montserrat', sans-serif;
-} 

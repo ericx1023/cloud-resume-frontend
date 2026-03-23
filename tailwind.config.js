@@ -7,6 +7,8 @@ module.exports = {
         'heading': ['Playfair Display', 'serif'],
         'body': ['Source Sans Pro', 'sans-serif'],
         'montserrat': ['Montserrat', 'sans-serif'],
+        'brutalist-serif': ['Playfair Display', 'serif'],
+        'brutalist-pixel': ['monospace', 'serif'],
       },
     },
   },
