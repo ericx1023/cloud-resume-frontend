@@ -36,7 +36,7 @@ const Hero: React.FC<HeroProps> = ({ personalInfo, visitorCount, onVisitorClick 
 
       <div className="z-10 flex flex-col items-center justify-center space-y-8 w-full max-w-5xl">
         {/* Name with Brutalist Frame */}
-        <div className="border-8 border-black p-6  bg-white shadow-[12px_12px_0px_0px_rgba(0,0,0,1)] hover:shadow-none transition-all duration-200 cursor-default">
+        <div className="border-8 border-black bg-white shadow-[12px_12px_0px_0px_rgba(0,0,0,1)] hover:shadow-none transition-all duration-200 cursor-default">
           <Typography variant="serif" size="giant" className="glitch-text">
             {personalInfo.name}
           </Typography>
