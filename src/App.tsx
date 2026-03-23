@@ -1,10 +1,11 @@
 import React, { useEffect, useState, useRef } from 'react';
-import Header from './components/Header';
-import ProfessionalSummary from './components/ProfessionalSummary';
-import WorkExperience from './components/WorkExperience';
-import Education from './components/Education';
-import Projects from './components/Projects';
-import CloudResumeStack from './components/CloudResumeStack';
+import Hero from './components/brutalist/Hero';
+import Summary from './components/brutalist/Summary';
+import Experience from './components/brutalist/Experience';
+import Education from './components/brutalist/Education';
+import Projects from './components/brutalist/Projects';
+import TechStack from './components/brutalist/TechStack';
+import { getPersonalInfo } from './config';
 
 // Replace with your API Gateway URL
 const API_URL = 'https://5udg206bdk.execute-api.us-east-1.amazonaws.com/Prod';
@@ -12,8 +13,7 @@ const API_URL = 'https://5udg206bdk.execute-api.us-east-1.amazonaws.com/Prod';
 function App() {
   const [visitorCount, setVisitorCount] = useState<number | null>(null);
   const apiCalledRef = useRef(false);
-  const cloudResumeRef = useRef<HTMLDivElement>(null);
-  const [isBlinking, setIsBlinking] = useState(false);
+  const personalInfo = getPersonalInfo();
 
   useEffect(() => {
     const fetchCount = async () => {
@@ -38,33 +38,34 @@ function App() {
   }, []);
 
   const handleVisitorClick = () => {
-    cloudResumeRef.current?.scrollIntoView({ behavior: 'smooth' });
-    setTimeout(() => {
-      setIsBlinking(true);
-      setTimeout(() => setIsBlinking(false), 4000);
-    }, 1000);
+    const techStackSection = document.getElementById('tech-stack');
+    techStackSection?.scrollIntoView({ behavior: 'smooth' });
   };
 
   return (
-    <div className="min-h-screen bg-gray-50">
+    <div className="min-h-screen bg-white">
       <main className="relative">
-        <Header 
+        {/* Phase 2: Hero */}
+        <Hero 
+          personalInfo={personalInfo} 
           visitorCount={visitorCount} 
           onVisitorClick={handleVisitorClick} 
         />
-        
-        <ProfessionalSummary />
-        
-        <WorkExperience />
-        
+
+        {/* Phase 3: Summary */}
+        <Summary />
+
+        {/* Phase 4: Experience */}
+        <Experience />
+
+        {/* Phase 5: Education */}
         <Education />
-        
+
+        {/* Phase 6: Projects */}
         <Projects />
-        
-        <CloudResumeStack 
-          cloudResumeRef={cloudResumeRef} 
-          isBlinking={isBlinking}
-        />
+
+        {/* Phase 7: Tech Stack */}
+        <TechStack />
       </main>
     </div>
   );
