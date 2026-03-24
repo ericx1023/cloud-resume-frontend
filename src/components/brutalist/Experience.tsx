@@ -71,7 +71,7 @@ const Experience: React.FC = () => {
             {EXPERIENCES.map((exp, idx) => (
               <div key={idx} className="relative group">
                 {/* Year Badge */}
-                <div className="inline-block bg-red-600 text-white px-4 py-1 mb-4 font-brutalist-pixel text-lg font-bold uppercase">
+                <div className="inline-block bg-black text-white px-4 py-1 mb-4 font-brutalist-pixel text-lg font-bold uppercase">
                   {exp.period}
                 </div>
                 
@@ -79,7 +79,7 @@ const Experience: React.FC = () => {
                 <Typography variant="serif" size="xl" className="uppercase font-black leading-none mb-2">
                   {exp.company}
                 </Typography>
-                <Typography variant="pixel" size="lg" className="italic font-bold text-red-600 mb-6 uppercase tracking-wider">
+                <Typography variant="pixel" size="lg" className="italic font-bold text-gray-700 mb-6 uppercase tracking-wider">
                   {exp.role}
                 </Typography>
 

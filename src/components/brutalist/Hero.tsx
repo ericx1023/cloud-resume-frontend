@@ -56,34 +56,34 @@ const Hero: React.FC<HeroProps> = ({ personalInfo, visitorCount, onVisitorClick 
 
         {/* Contact Info & Socials - Brutalist Grid */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-4 w-full mt-8">
-          <div className="border-4 border-black p-4 bg-white hover:bg-gray-200 transition-colors">
+          <div className="border-4 border-black p-4 bg-white hover:bg-black hover:text-white transition-colors group">
             <div className="flex items-center justify-center gap-2 mb-2">
               <MapPin size={20} strokeWidth={3} />
-              <Typography variant="pixel" size="md" className="font-bold uppercase">Location</Typography>
+              <Typography variant="pixel" size="md" className="font-bold uppercase group-hover:text-white">Location</Typography>
             </div>
-            <Typography variant="pixel" size="sm">{personalInfo.location}</Typography>
+            <Typography variant="pixel" size="sm" className="group-hover:text-white">{personalInfo.location}</Typography>
           </div>
 
-          <div className="border-4 border-black p-4 bg-white hover:bg-gray-200 transition-colors">
+          <div className="border-4 border-black p-4 bg-white hover:bg-black hover:text-white transition-colors group">
             <div className="flex items-center justify-center gap-2 mb-2">
               <Mail size={20} strokeWidth={3} />
-              <Typography variant="pixel" size="md" className="font-bold uppercase">Contact</Typography>
+              <Typography variant="pixel" size="md" className="font-bold uppercase group-hover:text-white">Contact</Typography>
             </div>
-            <Typography variant="pixel" size="sm" className="break-all">{personalInfo.email}</Typography>
-            <Typography variant="pixel" size="sm">{personalInfo.phone}</Typography>
+            <Typography variant="pixel" size="sm" className="break-all group-hover:text-white">{personalInfo.email}</Typography>
+            <Typography variant="pixel" size="sm" className="group-hover:text-white">{personalInfo.phone}</Typography>
           </div>
 
-          <div className="border-4 border-black p-4 bg-white hover:bg-gray-200 transition-colors">
+          <div className="border-4 border-black p-4 bg-white hover:bg-black hover:text-white transition-colors group">
             <div className="flex items-center justify-center gap-2 mb-2">
               <Github size={20} strokeWidth={3} />
-              <Typography variant="pixel" size="md" className="font-bold uppercase">Socials</Typography>
+              <Typography variant="pixel" size="md" className="font-bold uppercase group-hover:text-white">Socials</Typography>
             </div>
             <div className="flex justify-center gap-4">
               <a href={personalInfo.socialLinks.github} target="_blank" rel="noopener noreferrer" className="hover:underline">
-                <Typography variant="pixel" size="sm" className="font-black">GITHUB</Typography>
+                <Typography variant="pixel" size="sm" className="font-black group-hover:text-white">GITHUB</Typography>
               </a>
               <a href={personalInfo.socialLinks.linkedin} target="_blank" rel="noopener noreferrer" className="hover:underline">
-                <Typography variant="pixel" size="sm" className="font-black">LINKEDIN</Typography>
+                <Typography variant="pixel" size="sm" className="font-black group-hover:text-white">LINKEDIN</Typography>
               </a>
             </div>
           </div>

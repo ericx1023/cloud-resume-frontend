@@ -62,7 +62,7 @@ const Projects: React.FC = () => {
             <Typography variant="serif" size="giant" className="font-black uppercase leading-none">
               Featured
             </Typography>
-            <Typography variant="serif" size="xl" className="font-black uppercase text-red-600">
+            <Typography variant="serif" size="xl" className="font-black uppercase text-black italic underline decoration-black underline-offset-4">
               Projects_
             </Typography>
           </div>
@@ -74,12 +74,12 @@ const Projects: React.FC = () => {
         {/* Projects Grid */}
         <div className="flex-grow grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 divide-y-8 md:divide-y-0 md:divide-x-8 divide-black bg-black">
           {PROJECTS.map((project, idx) => (
-            <div key={idx} className={`p-8 flex flex-col bg-white hover:bg-cyan-300 transition-all duration-200 group ${idx === 2 ? 'md:col-span-2 lg:col-span-1' : ''}`}>
+            <div key={idx} className={`p-8 flex flex-col bg-white hover:bg-gray-100 transition-all duration-200 group ${idx === 2 ? 'md:col-span-2 lg:col-span-1' : ''}`}>
               <div className="mb-6">
                 <Typography variant="serif" size="lg" className="font-black uppercase leading-tight group-hover:italic">
                   {project.title}
                 </Typography>
-                <Typography variant="pixel" size="md" className="text-red-600 font-bold uppercase mt-1">
+                <Typography variant="pixel" size="md" className="text-black font-black uppercase mt-1">
                   {project.role}
                 </Typography>
               </div>
@@ -104,7 +104,7 @@ const Projects: React.FC = () => {
               {/* Links */}
               <div className="mt-8 pt-6 border-t-4 border-black flex gap-4">
                 {project.github && (
-                  <a href={project.github} target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 bg-black text-white px-3 py-1 hover:bg-red-600 transition-colors">
+                  <a href={project.github} target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 bg-black text-white px-3 py-1 hover:bg-gray-800 transition-colors">
                     <Github size={16} />
                     <Typography variant="pixel" size="xs" color="contrast" className="font-bold uppercase">Source</Typography>
                   </a>
