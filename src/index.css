@@ -7,7 +7,7 @@
 :root {
   --brutalist-black: #000000;
   --brutalist-white: #ffffff;
-  --brutalist-accent: #ff0000; /* Red as default accent */
+  --brutalist-accent: #000000; /* Black as default accent */
 }
 
 @layer base {
@@ -36,7 +36,7 @@
 
   /* Retro Design Errors simulation (intentional) */
   .glitch-text {
-    text-shadow: 2px 2px 0px var(--brutalist-accent);
+    text-shadow: 2px 2px 0px rgba(0,0,0,0.2);
   }
 }
 

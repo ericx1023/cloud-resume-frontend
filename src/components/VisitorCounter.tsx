@@ -18,20 +18,16 @@ const VisitorCounter: React.FC<Props> = ({ visitorCount, onVisitorClick }) => {
   }, []);
   
   return (
-    <section
-      className={`p-4 rounded-lg mt-8 hover:bg-grey transition-all duration-800 font-montserrat cursor-pointer ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-5'}`}
+    <div
+      className={`inline-block border-4 border-black p-6 bg-white shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] hover:shadow-none hover:translate-x-1 hover:translate-y-1 transition-all duration-200 cursor-pointer ${isVisible ? 'opacity-100' : 'opacity-0'}`}
       onClick={onVisitorClick}
-      style={{ 
-        cursor: "pointer",
-        transition: "opacity 0.8s ease, transform 0.8s ease"
-      }}
     >
-      <p className="text-center text-gray-600">
+      <p className="text-center font-brutalist-pixel text-black text-xl uppercase tracking-tighter">
         {visitorCount === null ? (
-          'Loading...'
+          'LOADING_VISITORS...'
         ) : (
           <>
-            You are the <span className="font-bold">
+            VISITOR_NO. <span className="font-black bg-black text-white px-2">
               {visitorCount}
               <sup className="ml-0.5">
                 {(() => {
@@ -51,11 +47,11 @@ const VisitorCounter: React.FC<Props> = ({ visitorCount, onVisitorClick }) => {
                   }
                 })()}
               </sup>
-            </span> visitor of the resume
+            </span>
           </>
         )}
       </p>
-    </section>
+    </div>
   );
 };
 

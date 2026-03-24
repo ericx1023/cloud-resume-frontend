@@ -67,7 +67,7 @@ const Education: React.FC = () => {
         {/* Education Grid */}
         <div className="flex-grow grid grid-cols-1 md:grid-cols-3 divide-y-8 md:divide-y-0 md:divide-x-8 divide-black bg-white">
           {EDUCATIONS.map((edu, idx) => (
-            <div key={idx} className="p-8 md:p-10 flex flex-col h-full hover:bg-red-600 group transition-all duration-300">
+            <div key={idx} className="p-8 md:p-10 flex flex-col h-full hover:bg-black group transition-all duration-300">
               <div className="mb-8">
                 <Typography variant="pixel" size="xl" className="font-black mb-2 group-hover:text-white">
                   [{edu.year}]
@@ -94,7 +94,7 @@ const Education: React.FC = () => {
               <div className="pt-6 border-t-4 border-black group-hover:border-white">
                 <div className="flex flex-wrap gap-2">
                   {edu.tech.map((t, tIdx) => (
-                    <span key={tIdx} className="bg-black text-white px-2 py-0.5 font-brutalist-pixel text-xs uppercase font-bold group-hover:bg-white group-hover:text-red-600 transition-colors">
+                    <span key={tIdx} className="bg-black text-white px-2 py-0.5 font-brutalist-pixel text-xs uppercase font-bold group-hover:bg-white group-hover:text-black transition-colors">
                       {t}
                     </span>
                   ))}

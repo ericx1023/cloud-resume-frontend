@@ -9,11 +9,11 @@ import Typography from './Typography';
 const Summary: React.FC = () => {
   return (
     <SectionWrapper id="summary" title="Summary" className="bg-white px-4 border-b-8 border-black">
-      <div className="w-full max-w-6xl grid grid-cols-1 md:grid-cols-12 gap-0 border-8 border-black bg-black shadow-[16px_16px_0px_0px_rgba(255,0,0,1)]">
+      <div className="w-full max-w-6xl grid grid-cols-1 md:grid-cols-12 gap-0 border-8 border-black bg-black shadow-[16px_16px_0px_0px_rgba(0,0,0,0.3)]">
         
         {/* Professional Summary Section */}
         <div className="md:col-span-8 bg-white p-8 md:p-12 border-b-8 md:border-b-0 md:border-r-8 border-black">
-          <Typography variant="serif" size="xl" className="mb-8 underline decoration-8 decoration-red-600 underline-offset-8 uppercase font-black italic">
+          <Typography variant="serif" size="xl" className="mb-8 underline decoration-8 decoration-black underline-offset-8 uppercase font-black italic">
             Professional Summary
           </Typography>
           <div className="space-y-6">
@@ -30,7 +30,7 @@ const Summary: React.FC = () => {
         </div>
 
         {/* Technical Skills Section */}
-        <div className="md:col-span-4 bg-yellow-300 p-8 flex flex-col justify-start">
+        <div className="md:col-span-4 bg-gray-200 p-8 flex flex-col justify-start">
           <Typography variant="serif" size="lg" className="mb-8 border-b-4 border-black pb-2 uppercase font-black">
             Technical Skills
           </Typography>

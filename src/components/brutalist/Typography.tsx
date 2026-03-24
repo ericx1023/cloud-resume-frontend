@@ -32,7 +32,7 @@ const Typography: React.FC<TypographyProps> = ({
 
   const colorMap = {
     primary: 'text-black',
-    accent: 'text-red-600',
+    accent: 'text-black font-bold italic underline',
     contrast: 'text-white',
   };
 
